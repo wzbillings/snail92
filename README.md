@@ -26,12 +26,14 @@ The revised preregistration-ready protocol is present and treated as the source 
 |-- snail92.Rproj
 |-- _quarto.yml
 |-- index.qmd
+|-- docs/
+|   `-- rendered Quarto website for GitHub Pages
 |-- protocol/
 |   |-- preregistration/
 |   |-- original-draft/
 |   |-- review/
 |   `-- printable/
-|-- docs/
+|-- supporting-docs/
 |   |-- shopping-list/
 |   |-- schedule/
 |   `-- background/
@@ -71,7 +73,7 @@ Render the website from the repository root:
 quarto render
 ```
 
-The rendered site is written to `_site/`, which is ignored by git. The analysis pages currently contain placeholders and reproducible structure, not fabricated results.
+The rendered site is written to `docs/` so GitHub Pages can serve it from the `main` branch. The analysis pages currently contain placeholders and reproducible structure, not fabricated results.
 
 ## Dependency Management
 

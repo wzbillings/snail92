@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>original-protocol-draft – Snail 92 N-of-1 Discontinuation Trial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Snail 92 N-of-1 Discontinuation Trial</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-analysis" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Analysis</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-analysis">    
+        <li>
+    <a class="dropdown-item" href="../../analysis/01_data_import.html">
+ <span class="dropdown-text">Data import</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../analysis/02_quality_checks.html">
+ <span class="dropdown-text">Quality checks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../analysis/03_primary_analysis.html">
+ <span class="dropdown-text">Primary analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../analysis/04_sensitivity_analyses.html">
+ <span class="dropdown-text">Sensitivity analyses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../analysis/05_exploratory_analysis.html">
+ <span class="dropdown-text">Exploratory analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../protocol/preregistration/revised-preregistration-ready-protocol.html"> 
+<span class="menu-text">Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data/README.md"> 
+<span class="menu-text">Data guide</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#n-of-1-protocol-for-cosrx-advanced-snail-92-on-top-of-a-stable-skincare-routine" id="toc-n-of-1-protocol-for-cosrx-advanced-snail-92-on-top-of-a-stable-skincare-routine" class="nav-link active" data-scroll-target="#n-of-1-protocol-for-cosrx-advanced-snail-92-on-top-of-a-stable-skincare-routine">N-of-1 Protocol for COSRX Advanced Snail 92 on Top of a Stable Skincare Routine</a>
+  <ul class="collapse">
+  <li><a href="#trial-core" id="toc-trial-core" class="nav-link" data-scroll-target="#trial-core">Trial core</a></li>
+  <li><a href="#allocation-and-routine-control" id="toc-allocation-and-routine-control" class="nav-link" data-scroll-target="#allocation-and-routine-control">Allocation and routine control</a></li>
+  <li><a href="#outcomes-and-measurement" id="toc-outcomes-and-measurement" class="nav-link" data-scroll-target="#outcomes-and-measurement">Outcomes and measurement</a></li>
+  <li><a href="#safety-and-data-systems" id="toc-safety-and-data-systems" class="nav-link" data-scroll-target="#safety-and-data-systems">Safety and data systems</a></li>
+  <li><a href="#analysis-and-decisions" id="toc-analysis-and-decisions" class="nav-link" data-scroll-target="#analysis-and-decisions">Analysis and decisions</a></li>
+  <li><a href="#reporting-and-execution" id="toc-reporting-and-execution" class="nav-link" data-scroll-target="#reporting-and-execution">Reporting and execution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="n-of-1-protocol-for-cosrx-advanced-snail-92-on-top-of-a-stable-skincare-routine" class="level1">
+<h1>N-of-1 Protocol for COSRX Advanced Snail 92 on Top of a Stable Skincare Routine</h1>
+<section id="trial-core" class="level2">
+<h2 class="anchored" data-anchor-id="trial-core">Trial core</h2>
+<p><strong>Protocol synopsis.</strong> The objective of this trial is to determine whether continuing <strong>COSRX Advanced Snail 92 All In One Cream</strong> at the nighttime “trial-layer” step provides <strong>measurable additional skin benefit</strong> on top of your otherwise stable skincare routine, under a design that is randomized, partially blinded, robust to time trends, and feasible at home. The recommended default is a <strong>full-face randomized multiple-crossover switchback trial</strong> lasting <strong>74 days total</strong>: <strong>14-day run-in/stabilization</strong>, then <strong>10 randomized 6-day periods</strong> arranged as <strong>5 concealed 2-period blocks</strong>, with <strong>days 1–2 of each randomized period treated as transition days</strong> and excluded from the primary analysis. The two randomized conditions are <strong>Snail 92</strong> versus a <strong>coded bland hydrating comparator</strong> placed in the same position in the nighttime routine. Primary outcome: a daily <strong>Morning Barrier Burden Score</strong> derived from dryness, tightness, and reverse-coded barrier comfort, measured before morning skincare. Secondary outcomes: individual barrier items, flaking, redness/irritation symptoms, standardized-photo redness metrics, optional moisture-meter readings, acne lesion outcomes, weekly overall skin quality, and exploratory pore/texture outcomes. Safety outcomes: burning, stinging, itching, worsening redness, barrier disruption, eye-area reactions, and acne flares. The default decision rule is conservative: <strong>keep Snail 92 only if it shows a practically meaningful and reasonably well-supported benefit over the coded comparator without offsetting harms</strong>; if results are inconclusive, the precommitted default is to <strong>discontinue Snail 92</strong>. This design choice is motivated by core n-of-1 principles: chronic stable question, repeated crossover, randomization, careful outcome definition, explicit handling of carryover/onset, and preplanned analysis. citeturn16view0turn16view1turn16view2turn25search0turn25search6</p>
+<p><strong>Causal question and estimands.</strong> Your requested conceptual primary estimand is: <strong>the incremental effect of Snail 92 when added to your otherwise stable routine, compared with the same routine without Snail 92</strong>. That is the most literal answer to “Does Snail 92 provide additional benefit on top of the rest of my routine?” However, for actual trial conduct, I recommend a closely related <strong>decision estimand</strong> as the operational primary estimand: <strong>the average steady-state effect of Snail 92 versus a coded bland comparator layer</strong> occupying the same nighttime slot, holding the rest of the routine fixed. I recommend this because your most likely sensitive outcomes are subjective barrier outcomes, and blinding materially improves interpretability when nonspecific effects and expectancy are plausible. The no-layer estimand remains a key <strong>secondary policy estimand</strong> and should be discussed explicitly in the preregistration. citeturn16view0turn16view1turn25search4turn25search9</p>
+<p>The relevant effect is not the same for every outcome. For <strong>hydration, dryness, and barrier comfort</strong>, the relevant causal effect is mostly <strong>immediate to short-lag</strong> and therefore best summarized as the <strong>average steady-state difference across randomized periods</strong>, with explicit protection against the first 1–2 post-switch days. For <strong>redness and irritation</strong>, the lag is also likely short, though exposure to sun, shaving, cleansing, and retinol may add noise. For <strong>acne</strong>, lesion development is slower and event counts in your case are low, so the most relevant estimands are <strong>distributed-lag or cumulative effects over roughly 1–2 weeks</strong>, making acne a secondary or exploratory target rather than a sensible primary endpoint here. For <strong>pore appearance and texture</strong>, the likely estimand is a noisy, image-dependent average effect over periods, and it should remain exploratory because smartphone-based pore-size inference is fragile. citeturn16view1turn16view2turn16view3turn21search1turn21search6turn10search1</p>
+<p>What an at-home n-of-1 can and cannot say should be stated plainly. It can estimate whether <strong>the product as used in your routine</strong> improves personally relevant outcomes under repeated randomized exposure. It can also test whether Snail 92 appears better than a <strong>generic replacement gel-cream</strong>. It <strong>cannot</strong> identify the effect of “snail mucin alone,” because COSRX Snail 92 is not a single-ingredient intervention: the current official ingredient list includes snail secretion filtrate plus betaine, butylene glycol, dimethicone, sodium hyaluronate, allantoin, panthenol, and other formulation components, and COSRX has acknowledged that ingredient listings have changed across packaging/regulatory contexts, so the exact formulation should be verified at trial start. The broader snail-secretion literature suggests possible hydration and barrier-related benefits, but the evidence base is heterogeneous and not strong enough to justify presuming benefit in your specific routine. citeturn13view15turn20view0turn8search1turn8search2turn8search15</p>
+<p><strong>Final recommended design.</strong> The recommended protocol is a <strong>full-face randomized multiple-crossover switchback trial</strong> with <strong>10 randomized periods of 6 nights each</strong>, preceded by a <strong>14-night run-in</strong>. Each 6-night period uses a single full-face condition. The first <strong>2 nights</strong> after each switch are treated as <strong>transition/washout nights</strong> for the primary analysis, leaving <strong>4 analyzable steady-state mornings per period</strong>. There is <strong>no treatment-free washout period</strong>, because explicit washouts lengthen the study, can be clinically inconvenient, and are often inferior to an <strong>analytic washout</strong> that discards or downweights early post-switch observations. The total planned duration is <strong>74 days</strong>, with a prespecified contingency extension of <strong>one additional 12-day randomized block</strong> if missingness or major deviations invalidate too many periods. The period length is chosen because it is long enough to allow onset/carryover stabilization yet short enough to permit multiple crossovers within &lt;3 months; it also aligns neatly with a fixed <strong>every-other-night retinol schedule</strong>. citeturn16view1turn16view2turn16view3</p>
+<p>This design is preferred over simpler alternatives. A <strong>baseline → discontinuation</strong> design is maximally ecological but highly vulnerable to regression to the mean, seasonality, retinol adaptation, work/travel changes, and expectation. A simple <strong>ABAB withdrawal/rechallenge</strong> is stronger than before/after, but predictable alternation is easier to game psychologically and less robust to secular trends. A <strong>randomized crossover/switchback</strong> is the best default for a short-lag, symptom-heavy skincare question because it balances condition counts over time and supports exact randomization inference. A <strong>Snail vs no-Snail</strong> design answers the literal added-value question more directly, but because the primary endpoints are subjective and no-layer periods are hard to blind, it is not my recommended default. A <strong>Snail vs coded comparator</strong> does a better job answering your more specific practical question—“Is keeping this exact product justified, rather than using a generic replacement?”—while still remaining close to your real decision problem. citeturn16view0turn16view1turn25search7turn25search9</p>
+<p>The main threats handled by this design are the ones you flagged. <strong>Delayed hydration effects</strong> are handled by excluding early post-switch days and checking lagged-treatment sensitivity analyses. <strong>Retinol-related dryness</strong> is handled by fixing retinol frequency and keeping period length compatible with that schedule. <strong>Acne lesion latency</strong> is handled by demoting acne to secondary/exploratory status and analyzing it with lagged/count methods rather than expecting sharp within-week reversal. <strong>Seasonal and calendar effects</strong> are controlled by repeated crossover and blocked randomization, though not eliminated. <strong>Regression to the mean</strong> is reduced by replication. <strong>Week-to-week variability</strong> is averaged over repeated periods. <strong>Low acne event rates</strong> mean acne will be low-powered and should not drive your keep/discontinue decision unless harms are obvious. citeturn16view1turn16view2turn16view3turn21search1turn21search6</p>
+<p><strong>Comparator strategy.</strong> The most literal comparator for your conceptual policy estimand is <strong>no Snail 92 and no replacement layer</strong>. That contrast is ecologically clean and, because you continue using Lipikar afterward, it is more defensible here than it would be in a minimalist routine: the control condition still contains substantial moisturization and does not collapse into “moisturizer versus no moisturizer.” Still, I do <strong>not</strong> recommend it as the default because your primary outcomes are heavily symptom-based and expectancy effects matter. A true <strong>vehicle-like placebo</strong> would be ideal, but for Snail 92 that is not realistically available to consumers: COSRX does not sell a matched vehicle, and the formulation is not just “snail mucin plus nothing.” A <strong>generic moisturizer layer</strong> or <strong>occlusive layer</strong> is too active and often too texture-distinct. The best practical compromise is a <strong>bland, inexpensive, fragrance-free gel-cream comparator</strong> with low irritation risk and no acids, retinoids, benzoyl peroxide, vitamin C, or fragrance. citeturn16view0turn16view1turn13view15</p>
+<p>My default comparator recommendation is <strong>Neutrogena Hydro Boost Hyaluronic Acid Gel Cream Fragrance Free</strong>, decanted into identical opaque containers. It is inexpensive, widely available, fragrance-free, non-comedogenic, dermatologist-tested, and textured closer to a lightweight gel-cream than a heavier lotion. Its official ingredient list is generic-hydration heavy—water, glycerin, dimethicone, olivate emulsifiers, sodium hyaluronate, amino-acid/NMF components, betaine, allantoin, and related excipients—and it is marketed as barrier-supportive and fast-absorbing. That means it is <strong>not</strong> a placebo. That is acceptable here because the practical question is whether <strong>Snail 92 specifically</strong> beats a real, low-risk replacement layer. If Snail 92 does not outperform such a comparator, the case for continuing Snail 92 specifically becomes weak. If the comparator is not tolerated in patch testing, the fallback is either a heavier but simpler comparator such as <strong>Vanicream Moisturizing Lotion</strong> or, if you want maximum ecological relevance over blinding, a protocol amendment to the open-label <strong>routine-only control</strong> design using the same randomization structure. citeturn26view0turn26view1turn26view2turn13view17</p>
+</section>
+<section id="allocation-and-routine-control" class="level2">
+<h2 class="anchored" data-anchor-id="allocation-and-routine-control">Allocation and routine control</h2>
+<p><strong>Randomization, blocking, and allocation concealment.</strong> Use <strong>period-level randomization</strong> inside <strong>5 two-period blocks</strong>. Within each block, the order is randomized as <strong>XY</strong> or <strong>YX</strong>, where <strong>X</strong> and <strong>Y</strong> are neutral container codes, not product identities. This guarantees 5 periods of each condition, gives local balance against time trends, and avoids highly predictable strict alternation across the full study. A reproducible seed should be specified in advance and written into the preregistration. Because the participant should not know the future schedule, your friend should reveal only the current period’s code at the start of each new period. This creates proper allocation concealment with respect to <strong>future periods</strong>, even if partial unblinding occurs from texture or skin feel during the current period. The reasoning follows standard n-of-1 guidance: balanced sequencing is generally more validity-protective than pure simple randomization, while future-sequence concealment and blinding—when feasible—reduce expectancy bias. citeturn16view0turn14view4</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># randomization/generate_schedule.R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20260526</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-06-15"</span>)   <span class="co"># replace with actual randomized start</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>run_in_days <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>period_len <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>n_blocks <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomize product identity mapping (friend only)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>product_map <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"snail92"</span>, <span class="st">"comparator_gel"</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(product_map) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomize order within each 2-period block</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>block_order <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"XY"</span>, <span class="st">"YX"</span>), <span class="at">size =</span> n_blocks, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>schedule <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">block =</span> <span class="dv">1</span><span class="sc">:</span>n_blocks,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> block_order</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">p1_code =</span> <span class="fu">substr</span>(order, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">p2_code =</span> <span class="fu">substr</span>(order, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(p1_code, p2_code),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"within_block"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"cond_code"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(block, within_block) <span class="sc">|&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">period_start =</span> start_date <span class="sc">+</span> <span class="fu">days</span>((period <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> period_len),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">period_end   =</span> period_start <span class="sc">+</span> <span class="fu">days</span>(period_len <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">transition_day_1 =</span> period_start,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">transition_day_2 =</span> period_start <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">analyzable_start =</span> period_start <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">2</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">analyzable_end   =</span> period_end</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(schedule, <span class="st">"randomization/schedule_coded.csv"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Friend stores separately and does NOT share until database lock:</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">write_lines</span>(</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">names</span>(product_map), product_map, <span class="at">sep =</span> <span class="st">" = "</span>),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="st">"randomization/product_key_friend_only.txt"</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Operational instructions for your friend.</strong> Buy or obtain <strong>two identical opaque airless pump containers</strong> (or four, if you want backup/overflow) plus two dedicated filling spatulas. Record lot numbers, purchase dates, and photos of original packaging. Fill one coded container with Snail 92 and the other with the comparator. Randomly assign which physical code is <strong>X</strong> and which is <strong>Y</strong>; record the key outside your access, ideally both in an encrypted file and in a sealed envelope. Generate the coded schedule with the script above. Provide you only with: period number, calendar dates, and the container code to use. Keep hidden from you until analysis decisions are frozen: the X/Y product identity key, any refills that would expose identity, and the remaining future sequence beyond the current period. Reveal the full key only after the dataset is cleaned, photo processing rules are locked, and the primary analysis script is finalized. This is especially important because n-of-1 guidance explicitly notes that blinding, when used, should be preserved even when adaptation or early stopping becomes necessary. citeturn16view0turn16view3</p>
+<p><strong>Blinding and expectancy control.</strong> Blinding is realistically <strong>partial, not perfect</strong>. Snail 92 has a characteristic stringy/tacky gel-cream texture, and a comparator may differ in tackiness, spread, or afterfeel even if visual cues are removed by opaque packaging. Still, decanting both products into identical opaque airless pumps, using the same number of pumps each night, concealing the future sequence, and not disclosing the X/Y identity key all meaningfully reduce visual and anticipatory bias. AHRQ’s n-of-1 guidance is explicit that blinding matters most when one wants to distinguish specific from nonspecific effects; that is exactly the situation here because you care whether Snail 92 itself earns its place. citeturn16view0</p>
+<p>Expectancy should be measured, not merely lamented. Each morning, after recording symptoms but before looking at the schedule for the next day, log: <strong>perceived_assignment</strong> (X / Y / unsure), <strong>assignment_confidence</strong> (0–100), <strong>expect_tomorrow_skin</strong> (0–10, where 5 = average, &gt;5 = expect better than usual tomorrow), and <strong>belief_product_helping</strong> (0–10). In a weekly review, add a free-text note on why you think the period’s product may or may not be helping. If accidental unblinding occurs—because you recognize the feel, see the refill, or are told the identity—record the date, mechanism, and certainty. Continue the trial unless safety requires otherwise, but prespecify sensitivity analyses for pre- and post-unblinding data. citeturn16view0</p>
+<p><strong>Routine standardization.</strong> The rest of the routine should be standardized enough to protect causal interpretation without changing your real-world regimen so much that the trial answers the wrong question. The morning routine remains: <strong>Kikumasamune toner → ZealSea 10% azelaic acid product → Lipikar moisturizer → sunscreen according to the rule below</strong>. The nighttime routine becomes: <strong>cleanser → Kikumasamune toner → coded trial layer (Snail 92 or comparator) → retinol on fixed schedule → Lipikar moisturizer</strong>. No new products, no switching azelaic acid products, no changing moisturizers, no extra masks, acids, peels, pimple patches, spot treatments, or procedural treatments during the randomized phase unless medically necessary. citeturn19search0turn19search2</p>
+<p>For <strong>retinol</strong>, I recommend a fixed <strong>every-other-night</strong> schedule. Every-third-night would reduce irritation risk further, but it changes your baseline regimen more and weakens the chance of observing the way Snail interacts with a realistic ongoing retinol routine. Adaptive retinol use is the worst choice scientifically because it creates state-dependent confounding: you would skip retinol when dry or irritated, precisely when the primary outcome is bad. Keep the <strong>same retinol product</strong> throughout. Apply it <strong>after</strong> the trial-condition layer, not because that is universally the best cosmetic order, but because your explicit question is the effect of Snail 92 <strong>as currently used in that slot</strong>. There is evidence that moisturization before a retinoid can improve tolerability without necessarily eliminating benefit, which makes preserving the current order reasonable for this personal causal question. If you miss a scheduled retinol night, do <strong>not</strong> make it up; record the miss and resume the schedule on the next scheduled retinol night. Temporary rescue pauses for safety are allowed and must be logged. Topical retinoids commonly cause dryness, stinging, erythema, and irritation, and sunscreen is routinely recommended alongside them. citeturn4search0turn4search3turn5search2turn5search4</p>
+<p>For <strong>sunscreen</strong>, I recommend an <strong>exposure-triggered standardized rule</strong>, not a rigid indoors-or-outdoors daily mandate. Use the same sunscreen product throughout the trial. Apply your CeraVe AM SPF 50 in a standardized face dose <strong>before any planned daylight outdoor exposure of more than ~10 minutes</strong>, ideally in the morning, or before first exposure if plans change later. Record whether you used sunscreen, approximate amount (full dose / partial / none), and outdoor exposure minutes. This preserves ecological validity better than forcing daily sunscreen on true indoor days, while still controlling one of the main sources of day-to-day redness variability. The tradeoff is explicit: daily sunscreen with retinoids is good preventive dermatology, but in this specific n-of-1 it would also introduce a daily moisturizing/filter film that could mask a nighttime-product signal. citeturn4search2turn4search3</p>
+<p>For <strong>cleansing</strong>, use the <strong>CeraVe Acne Control Cleanser</strong> nightly as the default standardized cleanser, with lukewarm water and a roughly constant contact time. Because the product contains <strong>2% salicylic acid</strong>, and because salicylic acid and retinoids can both contribute to barrier symptoms, predefine a <strong>rescue cleanser rule</strong> rather than switching ad hoc. A rescue substitution with your pre-existing, known-tolerated oil cleanser is allowed only if any of the following are present: morning dryness or tightness <strong>≥7/10</strong>, stinging or burning <strong>≥4/10</strong>, flaking <strong>≥2/3</strong>, or visible barrier compromise. Rescue cleanser use is a <strong>planned safety rescue</strong>, not a protocol violation, but it must be recorded and handled in sensitivity analyses. Keep azelaic acid, niacinamide-containing products, and Lipikar constant. If you shave, shave on a fixed schedule and only <strong>after</strong> photos and morning ratings. Change pillowcases on a fixed schedule. Record travel, illness, medication changes, unusual sun/wind exposure, exercise/sweating, mask use, and any accidental product changes. Azelaic acid is generally well tolerated but can also cause mild local irritation, which is another reason to keep it constant rather than adaptive. citeturn19search2turn4search13turn4search19</p>
+</section>
+<section id="outcomes-and-measurement" class="level2">
+<h2 class="anchored" data-anchor-id="outcomes-and-measurement">Outcomes and measurement</h2>
+<p><strong>Outcome hierarchy.</strong> The primary outcome should be a symptom-based barrier endpoint, not acne, because the mechanistic prior for Snail 92 is much stronger for barrier/hydration than for acne, and your acne event rate is too low for comfortable primary-outcome power. I recommend the <strong>Morning Barrier Burden Score</strong> (<strong>MBBS</strong>, 0–10, lower = better), defined daily as<br>
+[ _t=. ]<br>
+This primary measure matches the likely way the product would matter in practice: waking up with skin that feels less dry, less tight, and more comfortable. It is collected before washing and before the morning routine, which keeps it close to the causal window of the nighttime intervention. Patient-centered outcomes remain central in n-of-1 trials even when more instrumented endpoints are available. citeturn16view0</p>
+<p>Key <strong>secondary outcomes</strong> should be: individual MBBS components; daily <strong>flaking score</strong>; daily subjective <strong>redness</strong>, <strong>burning</strong>, <strong>stinging</strong>, <strong>itching</strong>, <strong>warmth</strong>, and <strong>irritation</strong>; a daily or every-photo-session <strong>image-derived redness index</strong> from standardized photographs; optional standardized <strong>skin hydration meter</strong> readings; <strong>new inflammatory lesion count</strong>; <strong>active inflammatory lesion count</strong>; weekly <strong>overall skin quality</strong>; and adverse events. <strong>Pore appearance/texture</strong> should be explicitly labeled <strong>exploratory</strong>, ideally using both blinded manual scoring and conservative image texture metrics rather than grand claims about “true pore size.” Acne severity measurement in clinical research commonly relies on lesion counting and global grading, while redness quantification and cutaneous color change can be objectively summarized in color spaces such as CIELAB. citeturn21search1turn21search6turn18view3</p>
+<p>A practical effect threshold must be predeclared. My recommended <strong>minimal practically important difference</strong> for the primary outcome is <strong>0.5 points on the 0–10 MBBS scale</strong>, sustained on average across analyzable period days. For redness/irritation NRS outcomes, use the same <strong>0.5-point</strong> rule of thumb. For flaking, a sustained <strong>0.3-point</strong> difference on the 0–3 scale is practically relevant. For weekly overall skin quality, use <strong>0.7 points</strong> on 0–10. For acne, do <strong>not</strong> precommit to a numeric keep/discontinue threshold, given the expected instability; instead, define harm sensitivity thresholds, such as a visible increase in painful nodules/cysts or a clear increase in outbreak frequency. These are protocol design choices rather than externally validated MCIDs, and should be declared as such. citeturn21search1turn21search6</p>
+<p><strong>Home-measurable outcome definitions.</strong> Record the following each morning, before cleansing or products. <strong>dryness_nrs</strong>: 0 = none, 10 = worst you can imagine. <strong>tightness_nrs</strong>: 0 = none, 10 = worst imaginable tight/pulled feeling. <strong>barrier_comfort_nrs</strong>: 0 = maximally uncomfortable, 10 = maximally comfortable/settled. <strong>flaking_score</strong>: 0 = none; 1 = trace flaking in one region only; 2 = obvious flaking in at least one region or visible in standardized photos; 3 = marked or widespread flaking. These are the clinical core of the protocol. Evening ratings can also be recorded, but morning ratings should drive the primary analysis because they sit closest to your overnight treatment window and avoid contamination by daytime sunscreen/outdoor variation. citeturn16view0</p>
+<p>For <strong>redness/irritation</strong>, record: <strong>redness_nrs</strong>, <strong>burning_nrs</strong>, <strong>stinging_nrs</strong>, <strong>itching_nrs</strong>, <strong>warmth_nrs</strong>, <strong>irritation_nrs</strong>, all on 0–10 scales. Record them as subjective clinical state, not as photographic appearance only. Distinguish <strong>cosmetic redness</strong> from <strong>adverse irritation</strong> by also asking whether the redness is bothersome, coincides with burning/stinging, or persists &gt;30 minutes after application. Thresholds for concern are given in the safety section. Digital erythema quantification is credible when standardized imaging and color normalization are used; color changes are naturally represented in systems such as <strong>CIELAB</strong>, where <strong>a*</strong> captures red–green variation. citeturn18view3turn9search1turn9search6</p>
+<p>For <strong>acne</strong>, define outcomes conservatively. <strong>new_inflam_lesions</strong> = number of newly noticed papules, pustules, nodules, or cystic lesions that were not present yesterday. <strong>active_inflam_lesions</strong> = total number of currently active inflammatory lesions. <strong>new_comedones</strong> may be recorded weekly as exploratory only. Lesion classes: <strong>papule</strong> = raised inflamed lesion without visible pus; <strong>pustule</strong> = visible pustular center; <strong>comedone</strong> = open/closed noninflamed lesion; <strong>nodule/cyst</strong> = deep, painful or large inflammatory lesion; <strong>ambiguous</strong> = uncertain lesion type, logged separately and excluded from primary acne counts. Record region by <strong>forehead</strong>, <strong>nose</strong>, <strong>left cheek</strong>, <strong>right cheek</strong>, <strong>chin/jawline</strong>. Because FDA acne guidance and acne-methods reviews still treat lesion counts as core endpoints but also warn about variability and outliers, your acne analyses should be descriptive and low-confidence unless a strong signal emerges. citeturn21search1turn21search6turn21search4</p>
+<p>For <strong>pore appearance and texture</strong>, use both visual and numeric restraint. Weekly, after the trial but before revealing the product key, do a blinded manual review of randomized photo pairs and score <strong>nose_pore_score</strong>, <strong>left_cheek_texture_score</strong>, <strong>right_cheek_texture_score</strong>, and <strong>forehead_texture_score</strong> on a 0–10 scale. In parallel, derive ROI-based texture metrics from the images. Smartphone images can support relative redness and some coarse texture assessment under rigid standardization, but hydration inferred from appearance alone is weak and “pore size” from non-magnified phone photos is particularly fragile. GLCM-based metrics such as contrast, entropy, and homogeneity are legitimate texture summaries, but they should be interpreted as descriptive texture proxies rather than as literal pore histology. citeturn10search1turn10search18turn18view3</p>
+<p><strong>Standardized photography protocol.</strong> Use your <strong>rear camera</strong>, not the selfie camera. Mount the phone on a tripod or fixed stand. Use the same room, same lighting, same angle, same distance, same background, and the same time window each session. I recommend buying: <strong>a smartphone tripod or mount</strong> (budget roughly $15–30 from common smartphone-tripod offerings), <strong>an 18% gray card or white/gray/black reference set</strong> (roughly $10–15), <strong>floor tape or a measuring tape</strong> (a few dollars), and <strong>identical opaque airless pump containers</strong> for the coded products. An 18% gray card is a standard tool for establishing neutral white balance and exposure, and fixed-tripod smartphone setups are widely available. A large lighting purchase is optional; if your indoor lighting is stable, the tripod + gray card matter more than a ring light. citeturn7search0turn7search4turn7search9turn23search10turn23search11</p>
+<p>The recommended morning photo workflow is: wake, complete symptom ratings, rinse face <strong>gently with lukewarm water only</strong>, pat dry, then wait <strong>15 minutes</strong> in the same indoor environment with <strong>no products applied</strong>, no exercise, no shower, and no shaving. Then take photos: <strong>frontal</strong>, <strong>left 45°</strong>, <strong>right 45°</strong>, and optional close-ups of the <strong>nose/medial cheek</strong> regions. If available, use <strong>RAW+JPEG</strong>; if not, use the highest-quality default image setting. Disable portrait mode, beauty filters, face retouching, and scene enhancements. If the camera app allows it, lock white balance and exposure; if not, include a gray-card calibration image at the start of each session and hold conditions constant. Digital skin-color measurement is only trustworthy under proper photographic standardization, and custom white balance plus fixed reference cards materially improves color use in analysis. citeturn1search1turn9search17turn7search4</p>
+<p>For geometry: mark the floor so the lens-to-face distance is fixed; keep the phone at mid-face height; use the same focal length each time, ideally around a <strong>2x</strong> setting if available to reduce wide-angle distortion. Use a neutral facial expression, no smile, mouth gently closed, eyes open, hair off the face, and no glasses. If you shave, do it <strong>after</strong> the photo session and on a fixed schedule. If you sweat, shower, cry, or spend time in strong sun/wind before the intended photo session, delay or annotate the session. File names should follow a rigid convention such as<br>
+<code>YYYY-MM-DD_dayNN_periodPP_codeX_viewF.jpg</code><br>
+with analogous names for L, R, LCLOSE, RCLOSE, plus a metadata CSV linking timestamps, camera settings, and deviation notes. citeturn1search1turn9search0turn7search4</p>
+<p><strong>Image-processing and annotation plan.</strong> The image pipeline should be explicit and conservative. Import all images and read EXIF metadata. Use the gray card to normalize white balance and exposure across sessions where possible. Convert color to <strong>CIELAB</strong> and extract <strong>L*</strong>, <strong>a*</strong>, and <strong>b*</strong> summaries from fixed facial ROIs. Predefine ROIs at baseline—forehead, nose, left medial cheek, right medial cheek, chin—and transfer them across days using semi-automated landmark alignment plus manual checking. Store both raw and normalized metrics. Your most credible image-derived endpoint is a <strong>relative redness index</strong>, based primarily on <strong>a*</strong> and optionally supported by channel ratios such as R/G. Objective skin color and color change measurement is well grounded in colorimetric research, and digital erythema tools have shown correlation with clinical erythema scoring when images are standardized. citeturn18view3turn9search1turn9search6</p>
+<p>For texture, compute conservative ROI metrics such as <strong>GLCM contrast</strong>, <strong>GLCM homogeneity</strong>, <strong>GLCM entropy</strong>, and simple local variance or Laplacian-variance summaries. Treat any pore-like feature detection as exploratory only, and do not let a single image-processing choice determine the substantive conclusion. Manual lesion annotation can be done weekly or at trial end from photos, but because photos are not your sole acne instrument, lesion counts should still rely primarily on diary entries. Add reliability checks by re-annotating approximately 10% of images after a delay and computing agreement statistics. Plan an ROI sensitivity analysis using slightly larger and slightly smaller cheek ROIs. citeturn10search1turn10search18turn9search1</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analysis/image_pipeline_skeleton.R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(imager)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(farver)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jpeg)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># photo metadata file should contain:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># session_id, date, file_path, view, roi_file, gray_roi_file, notes</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>read_img <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  img <span class="ot">&lt;-</span> <span class="fu">image_read</span>(path)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  arr <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">image_data</span>(img, <span class="at">channels =</span> <span class="st">"rgb"</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aperm</span>(arr, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)) <span class="sc">/</span> <span class="dv">255</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: gray-card normalization using pre-recorded gray patch coordinates</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>normalize_rgb <span class="ot">&lt;-</span> <span class="cf">function</span>(rgb_arr, gray_coords) {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  patch <span class="ot">&lt;-</span> rgb_arr[gray_coords<span class="sc">$</span>y1<span class="sc">:</span>gray_coords<span class="sc">$</span>y2, gray_coords<span class="sc">$</span>x1<span class="sc">:</span>gray_coords<span class="sc">$</span>x2, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  patch_mean <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(<span class="fu">matrix</span>(patch, <span class="at">ncol =</span> <span class="dv">3</span>))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  scale_vec <span class="ot">&lt;-</span> <span class="fu">mean</span>(patch_mean) <span class="sc">/</span> patch_mean</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sweep</span>(rgb_arr, <span class="dv">3</span>, scale_vec, <span class="st">`</span><span class="at">*</span><span class="st">`</span>) <span class="sc">|&gt;</span> <span class="fu">pmin</span>(<span class="dv">1</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>rgb_to_lab <span class="ot">&lt;-</span> <span class="cf">function</span>(rgb_arr) {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">as.vector</span>(rgb_arr), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  lab <span class="ot">&lt;-</span> farver<span class="sc">::</span><span class="fu">convert_colour</span>(m, <span class="at">from =</span> <span class="st">"rgb"</span>, <span class="at">to =</span> <span class="st">"lab"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">array</span>(lab, <span class="at">dim =</span> <span class="fu">dim</span>(rgb_arr))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>extract_roi_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(lab_arr, roi_mask) {</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">&lt;-</span> <span class="fu">which</span>(roi_mask <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  vals <span class="ot">&lt;-</span> lab_arr[<span class="fu">cbind</span>(idx[,<span class="dv">1</span>], idx[,<span class="dv">2</span>], <span class="dv">1</span>)]</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  aval <span class="ot">&lt;-</span> lab_arr[<span class="fu">cbind</span>(idx[,<span class="dv">1</span>], idx[,<span class="dv">2</span>], <span class="dv">2</span>)]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  bval <span class="ot">&lt;-</span> lab_arr[<span class="fu">cbind</span>(idx[,<span class="dv">1</span>], idx[,<span class="dv">2</span>], <span class="dv">3</span>)]</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">L_med =</span> <span class="fu">median</span>(vals, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">a_med =</span> <span class="fu">median</span>(aval, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">b_med =</span> <span class="fu">median</span>(bval, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Texture placeholder: compute grayscale image then GLCM / variance metrics</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace with preferred package or custom implementation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Confounder and diary plan.</strong> The key time-varying nuisance variables are: cleanser used, rescue-cleanser use, retinol used, azelaic acid used, trial-condition adherence, trial-condition amount, sunscreen use, outdoor time, shaving, sleep, stress, alcohol, exercise/sweating, travel, illness, medication changes, mask wearing, pillowcase changes, humidity/weather if imported, and unusual exposures such as windburn, prolonged heat, or heavy makeup use. Hold constant wherever feasible: toner, azelaic acid, Lipikar, retinol product, trial-layer amount, morning product order, evening product order, and photo protocol. Record rather than standardize variables that would otherwise distort the ecological routine too much—especially outdoor exposure, sleep, stress, and travel. Treat accidental product substitutions, new products, procedures, or repeated missed applications as protocol deviations. citeturn16view0turn16view1</p>
+<p>A minimal daily diary should include: the coded condition assigned and actually used; number of pumps or amount used; whether retinol was due and whether it was used; cleanser type; rescue actions; sunscreen amount/use; outdoor minutes; morning symptom ratings; daily acne counts; expectancy items; photos taken; photo file names; and a short notes field. If you want to enrich the blog post, also log sleep hours, stress 0–10, and alcohol units, but do not let the protocol become too cumbersome. The primary purpose of the diary is to preserve analyzability, not to generate lifestyle folklore. citeturn16view0</p>
+</section>
+<section id="safety-and-data-systems" class="level2">
+<h2 class="anchored" data-anchor-id="safety-and-data-systems">Safety and data systems</h2>
+<p><strong>Safety protocol.</strong> The run-in period should standardize the rest of the routine, test the data-capture workflow, and confirm tolerability of the comparator. Patch test the comparator on a small jawline or behind-ear area for <strong>3 consecutive nights</strong> before randomization. Avoid the immediate eye area throughout the trial. Because topical retinoids, azelaic acid, and salicylic acid can all contribute to local irritation, barrier symptoms should be reviewed daily. Planned safety rescue actions are allowed; the point is not to “win” by enduring dermatitis. Topical retinoid irritation is common and usually manageable, and topical azelaic acid is generally well tolerated but can also cause mild local irritation, so the rescue ladder should be explicit. citeturn4search0turn4search13turn4search19</p>
+<p>Use the following prespecified rules. <strong>Pause retinol for the next two scheduled doses</strong> if either: burning or stinging is <strong>≥5/10</strong> on two consecutive mornings; MBBS components show dryness or tightness <strong>≥8/10</strong> for two consecutive mornings; or flaking reaches <strong>3/3</strong>. <strong>Use rescue cleanser instead of the salicylic-acid cleanser</strong> on any night after a morning meeting the rescue threshold. <strong>Stop the coded trial product for the remainder of the current period and contact a dermatologist or other clinician promptly</strong> if any of the following occur: hives; swelling; oozing; severe diffuse rash; eye-area swelling; persistent painful burning; or suspected allergic reaction. <strong>Stop the entire trial</strong> if severe or rapidly worsening symptoms occur, if painful nodulocystic acne clearly flares, or if barrier disruption becomes the dominant signal. Planned safety rescues are not failures; they are expected protocol components. What matters is that they are logged and handled transparently in analysis. citeturn4search0turn4search13turn20view0</p>
+<p><strong>Data structure.</strong> Create four core datasets plus photo files. The <strong>daily table</strong> is the primary analytic table and should include at least these columns:</p>
+<pre class="text"><code>date
+day_num
+block_num
+period_num
+period_day
+assigned_code
+actual_code
+adherence_binary
+amount_pumps
+cleanser_type
+rescue_cleanser_binary
+retinol_scheduled
+retinol_used
+toner_used_am
+azelaic_used_am
+lipikar_used_am
+lipikar_used_pm
+sunscreen_used
+sunscreen_amount_cat
+outdoor_minutes
+dryness_nrs
+tightness_nrs
+barrier_comfort_nrs
+mbbs
+flaking_score
+redness_nrs
+irritation_nrs
+burning_nrs
+stinging_nrs
+itching_nrs
+warmth_nrs
+new_inflam_lesions
+active_inflam_lesions
+new_comedones_weekly
+max_lesion_severity
+overall_skin_quality_weekly
+perceived_assignment
+assignment_confidence
+expect_tomorrow_skin
+belief_product_helping
+photos_taken
+photo_session_id
+moisture_forehead_mean
+moisture_lcheek_mean
+moisture_rcheek_mean
+shaved_today
+sleep_hours
+stress_nrs
+alcohol_units
+exercise_sweat_binary
+travel_binary
+illness_binary
+med_change_binary
+mask_wearing_binary
+pillowcase_changed
+unusual_exposure_note
+rescue_actions_note
+protocol_deviation_binary
+protocol_deviation_note</code></pre>
+<p>The <strong>weekly review table</strong> should summarize the prior 7 days and capture overall impressions, suspected unblinding, and any major deviations. The <strong>period summary table</strong> should contain each period’s analyzable-day means, rescue counts, and adherence. The <strong>adverse-event table</strong> should log event date, severity, suspected trigger, action taken, whether retinol was paused, and whether the trial period continued. The <strong>photo metadata table</strong> should include file path, view, timestamp, camera settings, session notes, and ROI version used. This structure is consistent with patient-reported repeated measures and image-linked n-of-1 analysis workflows. citeturn16view0turn14view3</p>
+<p>Use a simple project folder structure:</p>
+<pre class="text"><code>project/
+  preregistration_protocol/
+  randomization/
+  raw_diary/
+  cleaned_data/
+  raw_photos/
+  processed_photos/
+  annotations/
+  analysis_scripts/
+  figures/
+  blog_draft/
+  reports/</code></pre>
+</section>
+<section id="analysis-and-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-and-decisions">Analysis and decisions</h2>
+<p><strong>Statistical analysis plan.</strong> The analysis should begin with visual inspection. Plot daily MBBS, dryness, tightness, comfort, redness, irritation, and lesion counts over time, with shaded bands for coded treatment periods and clear marking of transition days. Next, compute period-level means using only days <strong>3–6</strong> of each 6-day randomized period. The primary confirmatory analysis should be an <strong>exact randomization test</strong> based on the blocked design: within each 2-period block, compute the difference in mean MBBS between the Snail and comparator periods, then average those five block-specific differences. Under the sharp null, the sign of each block contrast is exchangeable, giving an exact null distribution over <strong>2^5 = 32</strong> assignments. This is assumption-light and directly respects the randomization actually used. citeturn16view2turn16view3</p>
+<p>The primary model-based analysis should support, not replace, that randomization test. I recommend a <strong>robust Bayesian time-series regression</strong> or a frequentist analogue with <strong>AR(1)</strong> residual structure, <strong>Student-t</strong> errors if using Bayesian estimation, and predictors for treatment, block, calendar time, day-in-period, retinol the prior night, rescue-cleanser use, sunscreen/outdoor exposure, and optionally expectancy. N-of-1 guidance explicitly notes that repeated observations are autocorrelated and that time trends, seasonal influences, and carryover must be handled analytically when present; distributed-lag approaches are a principled sensitivity check when treatment effects may not be fully immediate. citeturn15view1turn12search15turn12search16</p>
+<p>For the primary endpoint, define the estimand as the <strong>average steady-state treatment effect on MBBS</strong>. The primary dataset uses <strong>assigned condition</strong>, not actual condition, on analyzable days, because assignment preserves the randomization basis. Nonadherence is then handled by sensitivity analyses: <strong>as-treated</strong>, <strong>adherent-only</strong>, and <strong>excluding periods with major rescue deviations</strong>. Carryover checks should compare the estimated effect when using days <strong>3–6</strong> versus <strong>2–6</strong> versus <strong>all days</strong>, and also in a distributed-lag model including current-day treatment plus 1- and 2-day lags. If the estimate is stable across these choices, carryover is unlikely to dominate. This follows the standard n-of-1 logic of comparing analyses with and without potentially contaminated early-period observations. citeturn16view2turn14view1</p>
+<p>Outcome-specific plans should be prespecified. For <strong>MBBS and its components</strong>, use daily continuous modeling plus the block-level randomization test. For <strong>redness/irritation NRS outcomes</strong>, use the same structure. For <strong>image-derived redness</strong>, model gray-card-normalized <strong>a*</strong> or a prespecified redness ratio, adjusting for view and ROI; repeat the analysis across a small set of alternative ROI definitions as a sensitivity check. For <strong>optional moisture-meter readings</strong>, use them only as secondary/exploratory and average replicate readings within site/session, because the literature supports the general utility of hydration devices but also shows that readings are sensitive to site and surface conditions; consumer devices are not equivalent to research-grade corneometry. citeturn18view3turn9search1turn11search10turn17view5turn22search2</p>
+<p>For <strong>acne</strong>, use conservative low-power methods. Analyze <strong>new inflammatory lesion count</strong> with Poisson or negative binomial regression if feasible, but expect sparse data and many zeros. Also compute a simple <strong>outbreak indicator</strong>—for example, any day with <strong>≥2</strong> new inflammatory lesions, or any week with <strong>≥3</strong> new inflammatory lesions or <strong>≥1</strong> cystic/nodular lesion—and compare outbreak frequency descriptively. Because acne response is delayed, add an exploratory <strong>distributed-lag exposure summary</strong> over the prior 7–14 days rather than expecting a same-day effect. If acne outcomes are directionally inconsistent and noisy, they should not override the primary barrier endpoint. citeturn21search1turn21search6</p>
+<p>For <strong>pore appearance/texture</strong>, use only exploratory summaries and insist on consistency across methods before saying anything strong. A plausible rule is that the blog post may discuss a texture effect only if at least <strong>two of three</strong> sources agree: blinded manual photo scoring, GLCM-based texture metrics, and weekly global skin-quality ratings. Missing data should be handled pragmatically. A period is considered valid for the primary analysis if at least <strong>3 of the 4 analyzable mornings</strong> have MBBS recorded. If more than <strong>15%</strong> of analyzable days are missing or more than <strong>2 periods</strong> are invalid, add one extra concealed randomized block before unblinding. Do <strong>not</strong> use ad hoc single imputation for the primary randomization test. citeturn16view3turn10search1</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analysis/primary_analysis_skeleton.R</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"cleaned_data/daily_clean.csv"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude transition days</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>steady <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(period_day <span class="sc">&gt;=</span> <span class="dv">3</span>, period_day <span class="sc">&lt;=</span> <span class="dv">6</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Period-level summaries for primary randomization test</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>period_means <span class="ot">&lt;-</span> steady <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(block_num, period_num, assigned_code) <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mbbs_mean =</span> <span class="fu">mean</span>(mbbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_days =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(mbbs)),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_days <span class="sc">&gt;=</span> <span class="dv">3</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Join treatment identity AFTER scripts are locked and key is revealed</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>key <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"randomization/product_key_revealed.csv"</span>)  <span class="co"># columns: assigned_code, treatment</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>period_means <span class="ot">&lt;-</span> period_means <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(key, <span class="at">by =</span> <span class="st">"assigned_code"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>block_diffs <span class="ot">&lt;-</span> period_means <span class="sc">%&gt;%</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(block_num, treatment, mbbs_mean) <span class="sc">%&gt;%</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> treatment, <span class="at">values_from =</span> mbbs_mean) <span class="sc">%&gt;%</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff_snail_minus_comp =</span> snail92 <span class="sc">-</span> comparator_gel)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>obs_stat <span class="ot">&lt;-</span> <span class="fu">mean</span>(block_diffs<span class="sc">$</span>diff_snail_minus_comp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Exact randomization test over block sign flips</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>all_signs <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="fu">rep</span>(<span class="fu">list</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)), <span class="fu">nrow</span>(block_diffs))) <span class="sc">|&gt;</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>null_stats <span class="ot">&lt;-</span> <span class="fu">apply</span>(all_signs, <span class="dv">1</span>, <span class="cf">function</span>(s)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(s <span class="sc">*</span> <span class="fu">abs</span>(block_diffs<span class="sc">$</span>diff_snail_minus_comp), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>p_two_sided <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(null_stats) <span class="sc">&gt;=</span> <span class="fu">abs</span>(obs_stat))</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Supporting Bayesian daily model</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>steady2 <span class="ot">&lt;-</span> steady <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(key, <span class="at">by =</span> <span class="st">"assigned_code"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">snail =</span> <span class="fu">if_else</span>(treatment <span class="sc">==</span> <span class="st">"snail92"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">retinol_prev =</span> <span class="fu">lag</span>(retinol_used, <span class="at">default =</span> <span class="dv">0</span>),</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">time_num =</span> <span class="fu">row_number</span>()</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  mbbs <span class="sc">~</span> snail <span class="sc">+</span> <span class="fu">factor</span>(block_num) <span class="sc">+</span> time_num <span class="sc">+</span> period_day <span class="sc">+</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    retinol_prev <span class="sc">+</span> rescue_cleanser_binary <span class="sc">+</span> outdoor_minutes <span class="sc">+</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="sc">|</span> <span class="fu">week</span>(date)),</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> steady2,</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">student</span>(),</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">autocor =</span> <span class="fu">cor_ar</span>(<span class="sc">~</span> time_num, <span class="at">p =</span> <span class="dv">1</span>),</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">4000</span>, <span class="at">cores =</span> <span class="dv">4</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Decision rule.</strong> Your decision rule should explicitly combine <strong>statistical evidence</strong>, <strong>practical importance</strong>, and <strong>harm</strong>. The outcome hierarchy matters: the primary decision should be driven mainly by the primary barrier endpoint and supported by redness/irritation outcomes, not by fragile pore analytics. I recommend the following categories. <strong>Keep Snail 92</strong> if:<br>
+1) the primary effect estimate favors Snail 92 over comparator by at least <strong>0.5 MBBS points</strong> on average;<br>
+2) the evidence is reasonably strong, defined as either <strong>exact randomization p ≤ 0.10</strong> <em>or</em> Bayesian <strong>Pr(benefit &gt; 0) ≥ 0.95</strong> plus <strong>Pr(benefit ≥ 0.5) ≥ 0.80</strong>; and<br>
+3) there is no meaningful worsening in irritation/redness or clear acne harm.<br>
+This is intentionally stricter than “any slight trend,” because Snail 92 is a keep/discontinue product, not a lifesaving therapy. The burden of proof for keeping it should be moderately high. citeturn16view0turn16view3turn12search16</p>
+<p><strong>Discontinue Snail 92</strong> if the primary estimate is near zero, clearly harmful, or practically trivial even if statistically suggestive; if the comparator is equal or better; or if there are offsetting harms in redness, irritation, or acne that negate a small comfort gain. <strong>Inconclusive but discontinue by default</strong> applies when the effect direction is favorable but weak and imprecise, or when measurement noise and partial unblinding leave too much doubt. <strong>Run a follow-up no-layer or cheaper-substitute trial</strong> if Snail 92 beats the comparator modestly but the advantage looks more like “extra hydration layer” than a uniquely valuable product effect. <strong>Investigate a cheaper hydrating substitute</strong> if the comparator is non-inferior or better. Exploratory outcomes—especially pore metrics—must not override the primary outcome unless the signal is very large, preponderant across methods, and aligned with blinded photo review. citeturn16view0turn26view1turn13view17</p>
+</section>
+<section id="reporting-and-execution" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-and-execution">Reporting and execution</h2>
+<p><strong>Blog-post and preregistration framing.</strong> In the preregistration, state plainly that this is a <strong>single-person randomized, partially blinded, full-face multiple-crossover skincare trial</strong> designed for a <strong>personal treatment decision</strong>. The plain-language question can be: <strong>“Compared with a bland replacement gel in the same nighttime slot, does COSRX Snail 92 make my skin feel measurably less dry/tight and more comfortable, without worsening irritation or breakouts?”</strong> Also disclose the conceptual policy question you still care about: <strong>“Would I do just as well without this layer altogether?”</strong> That honesty about estimand mismatch is a feature, not a bug. CENT reporting guidance exists precisely because n-of-1 trials benefit from explicit statements of design, outcomes, randomization, blinding, deviations, and analysis plans. citeturn25search0turn25search6</p>
+<p>Suggested figures for the blog post are: a CONSORT-like single-participant flow diagram; a coded treatment timeline; daily time-series plots for MBBS and key secondary outcomes; period-level mean plots by condition; a posterior or confidence-interval plot for the primary effect; a randomization-inference plot; photo panels showing selected standardized sessions; and a diagram of the image-processing workflow. Suggested tables are: routine-standardization rules; outcome definitions; randomization-schedule summary; deviations and rescue actions; adverse events; and the predeclared decision rule. citeturn25search6turn16view0</p>
+<p>The most important limitations should be stated without spin. This is one person. Blinding is partial, not perfect. Home measurements are noisy. Even standardized photos cannot make smartphone imaging equivalent to spectrophotometry or corneometry. Carryover and delayed uptake can never be ruled out completely. Redness visibility can vary with skin tone and lighting. Sunscreen, sun exposure, shaving, and cleanser/retinol interactions remain potential noise sources. Acne will be low-powered because lesion counts are sparse and delayed. Texture/pore metrics are exploratory. The trial is excellent for <strong>personal usefulness</strong>, but it is not evidence about the product for everyone else. It is, however, very good material for teaching readers about n-of-1 causal inference, measurement design, expectancy, adherence, decision rules under uncertainty, and the difference between “statistically interesting” and “worth keeping in my bathroom.” citeturn0search13turn18view3turn21search6turn16view2</p>
+<p><strong>Final operational checklist.</strong> Buy: a phone tripod/mount, a gray/white balance card, floor tape or a measuring tape, two identical opaque pump containers, and—only if you want the extra instrumentation—an inexpensive hydration meter. A gray card around <strong>$10</strong> is easy to source, and fragrance-free gel-cream comparators like the recommended Neutrogena product are about <strong>$20</strong> at the official listing. citeturn7search4turn26view1</p>
+<p>Before the trial: verify the current Snail 92 ingredient list on COSRX, patch-test the comparator, set up the photo station, pilot the full morning workflow for several days, lock the retinol schedule, record the precise rescue-cleanser product name, and fill the coded containers. Remember that COSRX itself has said the ingredient list shown to consumers has changed across markets and updates, so the trial should reference the version actually used. citeturn13view15turn20view0</p>
+<p>Run-in: 14 nights on your standardized routine, practicing diary completion and photography. If the photo workflow is too burdensome during run-in, fix that before randomization, not after. Ask your friend to generate the coded schedule and keep the key sealed. At the start of each 6-night period, use only the assigned coded container for that period. Record morning outcomes daily, take standardized photos daily if feasible, and log all rescue actions and deviations.</p>
+<p>Daily morning procedure: complete symptom diary before washing; rinse with lukewarm water only; wait 15 minutes product-free; take photos and optional moisture readings; then do the standardized morning routine and sunscreen rule. Daily evening procedure: cleanse according to the standardized/rescue rule; apply toner; apply the coded trial product with the same number of pumps; apply retinol if scheduled; then apply Lipikar. Weekly review: check adherence, major deviations, safety signals, and whether missingness is accumulating enough to justify the contingency extension.</p>
+<p>End-of-trial sequence: clean the diary, finalize the image-processing script, lock the primary-analysis script, and only then ask your friend to reveal the X/Y key. Run the primary randomization test first, then the supporting time-series model, then the sensitivity analyses, then exploratory analyses. Make the keep/discontinue decision with the predeclared rule, not with your favorite photo or your favorite narrative. If the result is inconclusive, follow your precommitted default: <strong>discontinue Snail 92</strong>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

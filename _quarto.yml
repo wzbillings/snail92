@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
 
 website:
   title: "Snail 92 N-of-1 Discontinuation Trial"
@@ -37,4 +37,3 @@ execute:
   warning: false
   message: false
   freeze: auto
-

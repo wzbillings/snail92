@@ -13,3 +13,5 @@ This file records repository, protocol-implementation, and analysis decisions th
 - Initialized `renv` for project-level R dependency management.
 - Added `DESCRIPTION` to declare direct R/Quarto analysis dependencies and `renv.lock` to record resolved package versions.
 - Expanded README license and disclaimer language for a public self-experiment repository.
+- Moved source-only documentation notes from `docs/` to `supporting-docs/` so `docs/` can contain the rendered Quarto website for GitHub Pages.
+- Changed Quarto `output-dir` from `_site` to `docs`.
