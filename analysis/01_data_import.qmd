@@ -1,0 +1,23 @@
+---
+title: "01 Data Import"
+---
+
+This page will import raw trial files after data collection begins. It should not manually edit raw data.
+
+Expected inputs:
+
+- daily diary export
+- weekly review export
+- adverse event log
+- protocol deviation log
+- photo metadata table
+
+```r
+source(here::here("R", "00_setup.R"))
+source(here::here("R", "data_validation.R"))
+
+load_required_packages()
+
+daily_raw <- readr::read_csv(here::here("data", "raw", "daily_log.csv"))
+weekly_raw <- readr::read_csv(here::here("data", "raw", "weekly_review.csv"))
+```

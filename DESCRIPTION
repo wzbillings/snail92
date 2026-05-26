@@ -1,0 +1,24 @@
+Package: snail92nof1trial
+Type: Project
+Title: Snail 92 N-of-1 Discontinuation Trial
+Version: 0.0.0.9000
+Description: Reproducible R and Quarto scaffold for a personal n-of-1
+    skincare discontinuation trial evaluating COSRX Advanced Snail 92 All In
+    One Cream within an otherwise stable routine.
+License: AGPL-3
+Encoding: UTF-8
+Imports:
+    broom,
+    dplyr,
+    ggplot2,
+    here,
+    janitor,
+    knitr,
+    lubridate,
+    purrr,
+    quarto,
+    readr,
+    rmarkdown,
+    tidyr,
+    tidyverse
+

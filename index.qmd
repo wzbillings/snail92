@@ -1,0 +1,35 @@
+---
+title: "Snail 92 N-of-1 Discontinuation Trial"
+---
+
+This repository contains the reproducible-research scaffold for a personal n-of-1 skincare discontinuation trial of COSRX Advanced Snail 92 All In One Cream.
+
+The primary question is:
+
+> Can Snail 92 be removed from the current routine without worsening skin outcomes, while keeping the rest of the routine unchanged?
+
+The project is currently in the scaffold/preregistration stage. The revised preregistration-ready protocol is the source of truth for the trial design, outcome hierarchy, decision rule, randomization restrictions, and analysis sequence. The original draft and expert stress-test report are retained as provenance.
+
+No trial results are reported here yet. Analysis pages are placeholders for future reproducible reports generated from collected data.
+
+## Key Documents
+
+- [Revised preregistration-ready protocol](protocol/preregistration/revised-preregistration-ready-protocol.md)
+- [Original protocol draft](protocol/original-draft/original-protocol-draft.md)
+- [Expert stress-test review](protocol/review/expert-stress-test-review.md)
+- [Data handling guide](data/README.md)
+- [Decision log](notes/decision-log.md)
+- [Protocol deviations log](notes/deviations-log.md)
+
+## Analysis Workflow
+
+The analysis will follow the order below:
+
+1. Import raw diary, weekly review, safety, deviation, and photo metadata files.
+2. Validate required fields, date continuity, treatment condition values, adherence fields, and score ranges.
+3. Derive preregistered scores, especially Morning Barrier Burden Score (MBBS).
+4. Run the preregistered exact randomization analysis before any exploratory interpretation.
+5. Run sensitivity analyses and exploratory summaries after the primary analysis is locked.
+
+The Quarto pages under `analysis/` are structured so the project can render before trial data exist.
+

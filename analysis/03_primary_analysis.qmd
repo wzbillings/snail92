@@ -1,0 +1,27 @@
+---
+title: "03 Primary Analysis"
+---
+
+This page is reserved for the preregistered primary analysis. It should be run only after the primary dataset, valid-period flags, and analysis script are locked according to the revised protocol.
+
+Primary statistic:
+
+\[
+\Delta = \overline{MBBS}_{omission} - \overline{MBBS}_{continuation}
+\]
+
+Positive values indicate worse barrier burden during omission and favor keeping Snail 92, subject to the full decision rule.
+
+```r
+source(here::here("R", "00_setup.R"))
+source(here::here("R", "scoring.R"))
+source(here::here("R", "analysis_models.R"))
+
+load_required_packages()
+
+daily_clean <- readr::read_csv(here::here("data", "processed", "daily_clean.csv"))
+daily_scored <- derive_primary_scores(daily_clean)
+
+primary_result <- primary_randomization_analysis(daily_scored)
+primary_result
+```

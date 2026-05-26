@@ -1,0 +1,21 @@
+---
+title: "04 Sensitivity Analyses"
+---
+
+This page is reserved for prespecified sensitivity analyses. These analyses support interpretation but do not replace the primary randomization analysis.
+
+Planned examples from the revised protocol:
+
+- primary window: period days 3-6
+- sensitivity A: period days 2-6
+- sensitivity B: all period days
+- sensitivity C: period days 4-6
+- adjacent same-condition period handling
+
+```r
+source(here::here("R", "analysis_models.R"))
+
+sensitivity_2_6 <- run_sensitivity_analysis(daily_scored, period_days = 2:6)
+sensitivity_all_days <- run_sensitivity_analysis(daily_scored, period_days = 1:6)
+sensitivity_4_6 <- run_sensitivity_analysis(daily_scored, period_days = 4:6)
+```

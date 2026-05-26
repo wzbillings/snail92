@@ -1,0 +1,57 @@
+# R / RStudio
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj.user
+
+# Quarto render artifacts
+_site/
+_freeze/
+.quarto/
+*_cache/
+*_files/
+
+# renv local state
+renv/library/
+renv/local/
+renv/staging/
+renv/python/
+renv/sandbox/
+
+# Local environments and secrets
+.Renviron
+.env
+.env.*
+secrets/
+private/
+local/
+
+# Sensitive trial materials that should not be committed accidentally
+data/private/
+data/raw/private/
+data/raw/photos/
+photos/
+outputs/private/
+reports/private/
+randomization/friend-only/
+randomization/*schedule*.csv
+randomization/*key*.txt
+*unredacted*
+*private*
+
+# OS/editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.old
+
+/.quarto/

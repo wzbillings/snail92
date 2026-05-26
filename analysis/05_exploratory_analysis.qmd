@@ -1,0 +1,15 @@
+---
+title: "05 Exploratory Analysis"
+---
+
+This page is for exploratory analyses that are explicitly outside the primary decision rule.
+
+Examples:
+
+- acne timing summaries
+- photo-derived redness and texture summaries
+- optional hydration-meter readings
+- descriptive comparisons not specified as primary or sensitivity analyses
+
+Exploratory findings should be labeled clearly and should not override the preregistered decision rule.
+

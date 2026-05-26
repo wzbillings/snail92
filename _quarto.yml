@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Snail 92 N-of-1 Discontinuation Trial"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Analysis
+        menu:
+          - text: Data import
+            href: analysis/01_data_import.qmd
+          - text: Quality checks
+            href: analysis/02_quality_checks.qmd
+          - text: Primary analysis
+            href: analysis/03_primary_analysis.qmd
+          - text: Sensitivity analyses
+            href: analysis/04_sensitivity_analyses.qmd
+          - text: Exploratory analysis
+            href: analysis/05_exploratory_analysis.qmd
+      - text: Protocol
+        href: protocol/preregistration/revised-preregistration-ready-protocol.md
+      - text: Data guide
+        href: data/README.md
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: false
+    link-external-newwindow: true
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+

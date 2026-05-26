@@ -1,0 +1,17 @@
+---
+title: "02 Quality Checks"
+---
+
+This page will summarize completeness, date continuity, valid ranges, adherence, and protocol-deviation flags before analysis.
+
+```r
+source(here::here("R", "00_setup.R"))
+source(here::here("R", "data_validation.R"))
+
+load_required_packages()
+
+validation_results <- validate_daily_log(daily_raw)
+validation_results$required_columns
+validation_results$dates
+validation_results$nrs_ranges
+```
