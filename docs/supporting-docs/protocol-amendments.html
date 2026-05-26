@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>decision-log – Snail 92 N-of-1 Discontinuation Trial</title>
+<title>protocol-amendments – Snail 92 N-of-1 Discontinuation Trial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,9 +142,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#decision-log" id="toc-decision-log" class="nav-link active" data-scroll-target="#decision-log">Decision Log</a>
+  <li><a href="#protocol-amendments" id="toc-protocol-amendments" class="nav-link active" data-scroll-target="#protocol-amendments">Protocol Amendments</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2026-05-26</a></li>
+  <li><a href="#final-design-cleanup-before-trial-start" id="toc-final-design-cleanup-before-trial-start" class="nav-link" data-scroll-target="#final-design-cleanup-before-trial-start">2026-05-26 - Final Design Cleanup Before Trial Start</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -155,27 +155,26 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="decision-log" class="level1">
-<h1>Decision Log</h1>
-<p>This file records repository, protocol-implementation, and analysis decisions that affect reproducibility.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">2026-05-26</h2>
+<section id="protocol-amendments" class="level1">
+<h1>Protocol Amendments</h1>
+<p>This file records design changes made after the revised preregistration-ready protocol was first added to the repository. It is not a regulatory amendment log; it is a practical audit trail for this self-experiment.</p>
+<section id="final-design-cleanup-before-trial-start" class="level2">
+<h2 class="anchored" data-anchor-id="final-design-cleanup-before-trial-start">2026-05-26 - Final Design Cleanup Before Trial Start</h2>
+<p><strong>Timing:</strong> Before the official trial start date and before any randomized-phase data collection.</p>
+<p><strong>Reason:</strong> The final implementation design should stay explicitly unblinded, avoid unnecessary allocation-concealment theater, use the selected private data paths, avoid public participant face photos, and remove low-value consumer hydration-meter measurement.</p>
+<p><strong>Changes</strong></p>
 <ul>
-<li>Created a public R/Quarto scaffold for the Snail 92 n-of-1 discontinuation trial.</li>
-<li>Treated <code>protocol/preregistration/revised-preregistration-ready-protocol.md</code> as the primary source of truth.</li>
-<li>Preserved the original protocol draft and expert stress-test report as provenance instead of rewriting or deleting them.</li>
-<li>Organized printable DOCX materials under <code>protocol/printable/</code>.</li>
-<li>Added lightweight R helper files rather than a package structure, because this is a personal self-experiment scaffold and not a full software package.</li>
-<li>Added privacy-oriented gitignore rules for private data, identifiable photos, concealed schedules, and product keys.</li>
-<li>Initialized <code>renv</code> for project-level R dependency management.</li>
-<li>Added <code>DESCRIPTION</code> to declare direct R/Quarto analysis dependencies and <code>renv.lock</code> to record resolved package versions.</li>
-<li>Expanded README license and disclaimer language for a public self-experiment repository.</li>
-<li>Moved source-only documentation notes from <code>docs/</code> to <code>supporting-docs/</code> so <code>docs/</code> can contain the rendered Quarto website for GitHub Pages.</li>
-<li>Changed Quarto <code>output-dir</code> from <code>_site</code> to <code>docs</code>.</li>
-<li>Created <code>supporting-docs/implementation-plan.md</code> as the trial-coordinator-style operational plan from preparation through archival.</li>
-<li>Resolved final implementation decisions before trial start: no friend-held schedule, official trial start date June 7, 2026, filled raw CSVs stored under <code>data/raw/private/</code>, participant photos stored under <code>data/raw/photos/</code>, no public participant face photos, and no consumer hydration-meter readings.</li>
-<li>Added <code>supporting-docs/protocol-amendments.md</code> to document those final design updates before randomized data collection.</li>
+<li>Removed friend-held future schedule concealment.</li>
+<li>Confirmed the investigator will generate, record, hash, and lock the unblinded randomized treatment schedule before the randomized phase.</li>
+<li>Set official trial start date to June 7, 2026.</li>
+<li>Set private filled raw CSV storage to <code>data/raw/private/</code>.</li>
+<li>Set participant photo storage to <code>data/raw/photos/</code>.</li>
+<li>Confirmed participant face photos will not be published; public image-method graphics will use publicly available demo photos.</li>
+<li>Removed consumer hydration-meter readings from the trial.</li>
+<li>Removed the obsolete <code>future_sequence_known</code> daily-template field because future-schedule knowledge is not an unblinding event in the final design.</li>
 </ul>
+<p><strong>Effect on estimand and primary analysis:</strong> No change. The primary comparison remains Snail 92 continuation versus Snail 92 omission with no replacement layer, and the primary analysis remains the exact randomization analysis of MBBS under the restricted schedule.</p>
+<p><strong>Effect on interpretation:</strong> Expectancy and anticipation remain limitations because the trial is open-label and the future schedule is not concealed. This is addressed through the fixed schedule, locked analysis plan, expectancy tracking, conservative decision rule, and avoidance of informal mid-trial outcome summaries.</p>
 
 
 </section>

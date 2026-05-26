@@ -24,7 +24,7 @@ This fixes the main causal flaw identified in the stress test: the earlier draft
 - **Run-in/stabilization:** 21 days.
 - **Randomized phase:** 10 periods × 6 nights = 60 days.
 - **Total planned duration:** 81 days.
-- **Maximum extension:** one additional 12-day pair of randomized periods only if primary data validity thresholds fail before unblinding.
+- **Maximum extension:** one additional 12-day pair of randomized periods only if primary data validity thresholds fail before primary analysis.
 
 **Period structure.**
 
@@ -43,7 +43,7 @@ Each component is rated 0–10 before morning skincare. Lower MBBS is better.
 
 **Secondary outcomes.** Individual MBBS components, flaking, redness, burning, stinging, itching, irritation, weekly global skin quality, rescue actions, retinol pauses, sunscreen adherence, and standardized-photo redness metrics.
 
-**Exploratory outcomes.** Acne lesion events, pore/texture appearance, optional hydration-meter readings.
+**Exploratory outcomes.** Acne lesion events and pore/texture appearance.
 
 **Safety outcomes.** Persistent irritation, burning/stinging, flaking, eczematous rash, eyelid involvement, suspected allergic reaction, acne flare, barrier disruption, retinol pause, cleanser rescue, and trial stoppage.
 
@@ -115,7 +115,7 @@ If these criteria are not met, extend run-in by 7 days once. If still not met, p
 - **5 omission periods**
 - **Maximum run length:** no more than 2 consecutive periods in the same condition.
 - **No visible XY/YX block structure.**
-- **Future sequence concealed by friend until data lock.**
+- **Full schedule generated and locked by the investigator before the randomized phase.**
 
 Transition handling:
 
@@ -286,7 +286,7 @@ Components:
 - `tightness_nrs`: 0 = none, 10 = worst imaginable.
 - `barrier_comfort_nrs`: 0 = very uncomfortable/unsettled, 10 = very comfortable/settled.
 
-MBBS is primary because Snail 92’s most plausible incremental benefit in this routine is barrier comfort/hydration, not acne or pore size. The review agreed MBBS is defensible but warned that it is subjective and expectancy-sensitive. The design therefore uses randomization, repeated crossovers, future-sequence concealment, expectancy tracking, and conservative decision rules.
+MBBS is primary because Snail 92’s most plausible incremental benefit in this routine is barrier comfort/hydration, not acne or pore size. The review agreed MBBS is defensible but warned that it is subjective and expectancy-sensitive. The design therefore uses randomization, repeated crossovers, locked analysis choices, expectancy tracking, and conservative decision rules.
 
 ### Secondary outcomes
 
@@ -423,7 +423,7 @@ If a scheduled photo is missed, do not make it up unless it can be done before m
 Photo workflow:
 
 1. Complete morning ratings.
-2. Do **not** rinse first if optional hydration readings will be taken.
+2. Do **not** rinse first.
 3. Sit/stand in the fixed photo location.
 4. Use rear camera on Google Pixel 10.
 5. Use tripod/fixed mount.
@@ -455,29 +455,13 @@ Exploratory image metrics:
 
 - R/G redness ratio.
 - Local texture variance in cheek ROIs.
-- Manual blinded-at-file-name review of photo sessions.
+- Manual file-name-masked review of photo sessions.
 
 No exploratory image metric can override MBBS.
 
-### Optional hydration meter
+### Hydration meter exclusion
 
-Optional only. Do not buy one unless you are willing to follow the procedure.
-
-The review warned that measuring after rinsing can make the reading reflect the rinse rather than the overnight treatment. Therefore, hydration readings must be taken:
-
-- Before any rinse/wash/product.
-- After sitting quietly indoors for 20 minutes.
-- Same room if possible.
-- Same sites each time.
-- Three replicate readings per site.
-
-Sites:
-
-- Left cheek.
-- Right cheek.
-- Forehead.
-
-If this is too annoying, drop the device. Do not let pseudo-objective readings contaminate the decision.
+Consumer hydration meters will not be used in this trial. The measurement is excluded because consumer devices are not accurate enough for this self-experiment and would add burden without improving the primary decision.
 
 ---
 
@@ -616,24 +600,26 @@ lighting_note
 distance_note
 gray_card_used
 usable_for_redness
-usable_for_blog
 exclusion_reason
 ```
 
 ### Folder structure
 
 ```text id="dt7ou8"
-snail92_nof1/
-  00_preregistration/
-  01_randomization_friend_only/
-  02_diary_raw/
-  03_diary_clean/
-  04_photos_raw/
-  05_photos_processed/
-  06_analysis/
-  07_figures/
-  08_blog_reporting/
-  09_archive_locked/
+repo/
+  protocol/preregistration/
+  randomization/
+  data/raw/private/
+  data/raw/photos/
+  data/processed/
+  data/metadata/
+  analysis/
+  R/
+  figures/
+  tables/
+  outputs/
+  reports/
+  supporting-docs/
 ```
 
 ---
@@ -727,17 +713,19 @@ Safety rescues are not violations when triggered by prespecified criteria. Discr
 
 ### Core principle
 
-Do not expose the randomization seed or sequence to yourself before analysis. The prior draft’s public seed and predictable XY/YX blocks were identified as a concealment failure.
+Generate the randomized schedule before the randomized phase, lock it, and follow it without ad hoc changes. This is an unblinded discontinuation trial, so the schedule is not concealed from the participant/statistician. The protection against bias comes from preregistered restrictions, a fixed schedule, a fixed decision rule, expectancy tracking, and avoiding informal mid-trial outcome analyses.
 
-### Friend-managed allocation
+### Investigator-managed allocation
 
-Your friend should generate the sequence offline. You should receive only:
+The investigator generates the full schedule before randomized-phase day 1. Save:
 
-- Current period number.
-- Start/end dates.
-- Assigned condition for the current period only.
+- the schedule-generation script;
+- the random seed;
+- the generated treatment schedule;
+- the schedule hash or checksum;
+- the schedule-lock date.
 
-Since conditions are open-label, the friend cannot conceal the current condition. The friend can conceal the **future sequence**, which still matters because anticipation can influence subjective ratings.
+The full schedule may be known to the participant because treatment assignment is explicitly unblinded. Once locked, the schedule cannot be changed because of symptoms, expectations, convenience, or emerging impressions.
 
 ### Randomization restrictions
 
@@ -751,13 +739,12 @@ Generate all 10-period sequences satisfying:
 
 Randomly select one valid sequence.
 
-### Friend-only R code
+### Randomization R code
 
-This code is for the friend to run. Do not run it yourself before data lock.
+This code is for the investigator to run before the randomized phase. Replace `YYYY-MM-DD` with the first randomized-phase date and set a fixed seed before saving the locked schedule.
 
 ```r id="cjmoc2"
-# friend_only_generate_randomization.R
-# Do not share the generated schedule with participant before database lock.
+# generate_randomization.R
 
 library(tidyverse)
 library(digest)
@@ -765,6 +752,8 @@ library(digest)
 start_date <- as.Date("YYYY-MM-DD")  # first randomized period date
 period_len <- 6
 n_periods <- 10
+randomization_seed <- 20260607
+set.seed(randomization_seed)
 
 has_long_run <- function(x, max_run = 2) {
   r <- rle(x)
@@ -787,8 +776,6 @@ valid_seq <- all_seq |>
   keep(~ !has_long_run(.x, max_run = 2)) |>
   keep(~ !is_strict_alternation(.x))
 
-# Friend chooses a private random seed or uses system randomness.
-# Do not put this seed in the preregistration.
 chosen <- sample(valid_seq, size = 1)[[1]]
 
 schedule <- tibble(
@@ -804,14 +791,15 @@ schedule <- tibble(
     analyzable_end = period_end
   )
 
-write_csv(schedule, "friend_only_schedule.csv")
+write_csv(schedule, "treatment_schedule.csv")
+writeLines(as.character(randomization_seed), "randomization_seed.txt")
 
-# Commitment record: share only the hash before trial starts.
+# Commitment record.
 schedule_hash <- digest(schedule, algo = "sha256")
 writeLines(schedule_hash, "schedule_sha256_hash.txt")
 
 # Optional: also hash the CSV file itself.
-file_hash <- digest(file = "friend_only_schedule.csv", algo = "sha256")
+file_hash <- digest(file = "treatment_schedule.csv", algo = "sha256")
 writeLines(file_hash, "schedule_file_sha256_hash.txt")
 
 schedule_hash
@@ -822,13 +810,12 @@ file_hash
 
 Before the randomized phase starts, preregister:
 
-- Trial start date.
+- Trial start date: June 7, 2026.
 - Randomization restrictions.
-- The SHA-256 hash of the concealed schedule.
-- The fact that the friend holds the schedule.
-- The rule that the full schedule is revealed only after the primary dataset and analysis script are locked.
-
-Do not preregister the actual sequence.
+- The randomization seed.
+- The schedule-generation script.
+- The SHA-256 hash of the locked schedule.
+- The rule that the locked schedule will be followed without ad hoc changes.
 
 ### Expectancy tracking
 
@@ -1085,7 +1072,7 @@ Do not use acne to keep Snail 92 unless the barrier outcome already supports kee
 
 ### Image analysis
 
-Predefine the image pipeline before unblinding/final analysis:
+Predefine the image pipeline before primary outcome modeling and final interpretation:
 
 1. Exclude unusable photos using objective criteria:
    - wrong lighting;
@@ -1109,21 +1096,15 @@ No custom method shopping after seeing results.
 
 Extension rule:
 
-- If fewer than 8 of 10 periods are valid, or if analyzable MBBS missingness exceeds 20%, add one additional 12-day pair of periods before unblinding, generated by the friend under the same restrictions.
+- If fewer than 8 of 10 periods are valid, or if analyzable MBBS missingness exceeds 20%, add one additional 12-day pair of periods before primary analysis, generated by the investigator under the same restrictions and locked before the extension begins.
 
 ### Outliers
 
 Do not remove outliers solely because they are extreme. Mark externally caused days, such as sunburn or illness, using prespecified deviation flags. Primary analysis includes them unless the entire period is invalidated by a major unrelated event.
 
-### Accidental unblinding
+### Schedule knowledge
 
-Because the current condition is open-label, unblinding refers only to future sequence discovery. If future assignments are accidentally revealed:
-
-- Record date and mechanism.
-- Continue trial if safe.
-- Mark all later days as `future_sequence_known = TRUE`.
-- Primary analysis still runs.
-- Interpretation downgraded if >50% of analyzable days occur after future-sequence revelation.
+Because the treatment and schedule are open-label, knowledge of future assignments is not an unblinding event or protocol deviation. The schedule-lock rule replaces allocation concealment: after the randomized-phase schedule is generated, do not change assignments, period order, period length, or extension rules because of expectations, symptoms, convenience, or emerging impressions.
 
 ---
 
@@ -1223,11 +1204,10 @@ Evening, 1 minute:
 
 ### Optional/enhanced tasks
 
-- Hydration meter.
 - Close-up photos.
 - Weather/humidity import.
 - Detailed image processing.
-- Manual blinded photo scoring.
+- Manual file-name-masked photo scoring.
 - Stress/sleep/alcohol logs.
 
 Optional tasks cannot define success. Drop them if they threaten adherence.
@@ -1251,16 +1231,13 @@ Use a plain-language summary:
 5. Secondary symptom plot: redness/burning/stinging.
 6. Rescue action plot.
 7. Acne harm-monitoring plot.
-8. Selected photo panels using prespecified selection rule.
+8. Image-processing workflow graphic using a public demo photo if a visual explanation is useful.
 
-### Photo selection rule
+### Public image rule
 
-Before unblinding/final interpretation, select photos for the blog as follows:
+Identifiable face photos from this trial will not appear in the public blog post or public repository. If the public writeup needs a graphic to explain photo normalization, region-of-interest selection, or image-derived redness metrics, use a publicly available demo photo or another image that is not from the participant and does not reveal private trial data.
 
-- Use the first valid scheduled photo session from each valid period’s analyzable window, or
-- Use a reproducible random sample of one valid photo session per period selected before looking at condition labels.
-
-Do not handpick “best” before/after photos. The stress test specifically flagged blog-photo cherry-picking as a validity threat.
+Private trial photos may be used for formal analysis under the locked photo workflow, but they remain outside Git. Public figures may show aggregate, non-identifying image-derived metrics.
 
 ### Limitation language
 
@@ -1269,7 +1246,7 @@ State clearly:
 - This is one person.
 - The primary outcome is subjective.
 - The trial is open-label.
-- Future sequence concealment reduces but does not eliminate expectancy.
+- The future schedule is not concealed, so expectancy and anticipation remain important limitations.
 - Photos are supportive, not definitive.
 - Acne is underpowered.
 - Pore/texture analysis is exploratory.
@@ -1307,7 +1284,6 @@ Required:
 
 Optional:
 
-- Hydration meter.
 - Extra storage for photos.
 - Remote shutter.
 
@@ -1323,8 +1299,8 @@ No comparator product is needed for the primary trial.
 - Confirm camera settings.
 - Decide retinol schedule.
 - Write safety thresholds into diary.
-- Ask friend to generate concealed randomization schedule.
-- Preregister schedule hash, not schedule.
+- Generate and lock the randomized treatment schedule.
+- Record the schedule seed, script, and hash.
 
 ### Run-in steps
 
@@ -1342,10 +1318,9 @@ Days −21 to −1:
 
 1. Complete diary before products.
 2. If photo day, take standardized photos before products.
-3. If hydration-meter day, take readings before rinse/wash/products after 20-minute acclimatization.
-4. Apply morning routine.
-5. Apply sunscreen.
-6. Log unusual exposures later if needed.
+3. Apply morning routine.
+4. Apply sunscreen.
+5. Log unusual exposures later if needed.
 
 ### Daily evening procedure
 
@@ -1385,8 +1360,8 @@ Stop, pause, or rescue according to thresholds. Do not rationalize through derma
 4. Lock valid periods.
 5. Lock photo exclusions.
 6. Lock primary analysis script.
-7. Ask friend to reveal full schedule.
-8. Verify schedule hash.
+7. Verify schedule script, seed, and hash.
+8. Confirm schedule assignments join correctly to daily data.
 9. Run primary randomization analysis.
 10. Run secondary analyses.
 11. Run sensitivity analyses.

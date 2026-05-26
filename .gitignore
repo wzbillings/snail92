@@ -34,9 +34,6 @@ data/raw/photos/
 photos/
 outputs/private/
 reports/private/
-randomization/friend-only/
-randomization/*schedule*.csv
-randomization/*key*.txt
 *unredacted*
 *private*
 

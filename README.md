@@ -14,6 +14,8 @@ Current status: **scaffold/preregistration**.
 
 The revised preregistration-ready protocol is present and treated as the source of truth. Data collection and final analysis have not been completed in this scaffold.
 
+Planned official trial start date: **June 7, 2026**.
+
 ## Repository Structure
 
 ```text
@@ -62,6 +64,8 @@ The protocol audit trail is preserved:
 - `protocol/original-draft/`: original draft protocol.
 - `protocol/review/`: expert stress-test/review report.
 - `protocol/printable/`: printable protocol, schedule, and shopping/materials documents.
+- `supporting-docs/implementation-plan.md`: operational milestone plan from preparation through final analysis, reporting, and archival.
+- `supporting-docs/protocol-amendments.md`: audit trail for final design updates made before trial start.
 
 The revised protocol supersedes earlier documents where they conflict.
 
@@ -104,7 +108,7 @@ Use `templates/` to create working data-entry files. Store data according to the
 - `data/metadata/`: codebooks, data dictionaries, validation notes, and processing logs.
 - `figures/`, `tables/`, and `outputs/`: generated artifacts from analysis scripts and Quarto reports.
 
-Do not commit identifiable photos, private notes, unredacted sensitive data, concealed randomization schedules, product keys, or files that were not intentionally prepared for public release.
+Do not commit identifiable photos, private notes, unredacted sensitive data, or files that were not intentionally prepared for public release. The final design is unblinded; any treatment schedule committed to the repository must be intentionally generated, hashed, and locked.
 
 ## Analysis Boundaries
 

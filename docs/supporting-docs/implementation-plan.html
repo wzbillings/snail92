@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>implementation-plan – Snail 92 N-of-1 Discontinuation Trial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Snail 92 N-of-1 Discontinuation Trial</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-analysis" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Analysis</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-analysis">    
+        <li>
+    <a class="dropdown-item" href="../analysis/01_data_import.html">
+ <span class="dropdown-text">Data import</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analysis/02_quality_checks.html">
+ <span class="dropdown-text">Quality checks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analysis/03_primary_analysis.html">
+ <span class="dropdown-text">Primary analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analysis/04_sensitivity_analyses.html">
+ <span class="dropdown-text">Sensitivity analyses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analysis/05_exploratory_analysis.html">
+ <span class="dropdown-text">Exploratory analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../protocol/preregistration/revised-preregistration-ready-protocol.html"> 
+<span class="menu-text">Protocol</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../data/README.md"> 
+<span class="menu-text">Data guide</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#snail-92-trial-implementation-plan" id="toc-snail-92-trial-implementation-plan" class="nav-link active" data-scroll-target="#snail-92-trial-implementation-plan">Snail 92 Trial Implementation Plan</a>
+  <ul class="collapse">
+  <li><a href="#design-alignment-notes" id="toc-design-alignment-notes" class="nav-link" data-scroll-target="#design-alignment-notes">Design Alignment Notes</a></li>
+  <li><a href="#operating-principles" id="toc-operating-principles" class="nav-link" data-scroll-target="#operating-principles">Operating Principles</a></li>
+  <li><a href="#role-map" id="toc-role-map" class="nav-link" data-scroll-target="#role-map">Role Map</a></li>
+  <li><a href="#repository-output-map" id="toc-repository-output-map" class="nav-link" data-scroll-target="#repository-output-map">Repository Output Map</a></li>
+  <li><a href="#milestone-overview" id="toc-milestone-overview" class="nav-link" data-scroll-target="#milestone-overview">Milestone Overview</a></li>
+  <li><a href="#phase-0---repository-and-documentation-readiness" id="toc-phase-0---repository-and-documentation-readiness" class="nav-link" data-scroll-target="#phase-0---repository-and-documentation-readiness">Phase 0 - Repository and Documentation Readiness</a></li>
+  <li><a href="#phase-1---protocol-finalization-and-preregistration-package" id="toc-phase-1---protocol-finalization-and-preregistration-package" class="nav-link" data-scroll-target="#phase-1---protocol-finalization-and-preregistration-package">Phase 1 - Protocol Finalization and Preregistration Package</a></li>
+  <li><a href="#phase-2---materials-procurement-and-intervention-readiness" id="toc-phase-2---materials-procurement-and-intervention-readiness" class="nav-link" data-scroll-target="#phase-2---materials-procurement-and-intervention-readiness">Phase 2 - Materials Procurement and Intervention Readiness</a></li>
+  <li><a href="#phase-3---randomization-and-schedule-lock" id="toc-phase-3---randomization-and-schedule-lock" class="nav-link" data-scroll-target="#phase-3---randomization-and-schedule-lock">Phase 3 - Randomization and Schedule Lock</a></li>
+  <li><a href="#phase-4---measurement-system-validation-and-dry-run" id="toc-phase-4---measurement-system-validation-and-dry-run" class="nav-link" data-scroll-target="#phase-4---measurement-system-validation-and-dry-run">Phase 4 - Measurement System Validation and Dry Run</a></li>
+  <li><a href="#phase-5---trial-initiation" id="toc-phase-5---trial-initiation" class="nav-link" data-scroll-target="#phase-5---trial-initiation">Phase 5 - Trial Initiation</a></li>
+  <li><a href="#phase-6---active-trial-conduct-and-monitoring" id="toc-phase-6---active-trial-conduct-and-monitoring" class="nav-link" data-scroll-target="#phase-6---active-trial-conduct-and-monitoring">Phase 6 - Active Trial Conduct and Monitoring</a></li>
+  <li><a href="#phase-7---closeout-after-final-observation" id="toc-phase-7---closeout-after-final-observation" class="nav-link" data-scroll-target="#phase-7---closeout-after-final-observation">Phase 7 - Closeout After Final Observation</a></li>
+  <li><a href="#phase-8---data-cleaning-and-quality-control" id="toc-phase-8---data-cleaning-and-quality-control" class="nav-link" data-scroll-target="#phase-8---data-cleaning-and-quality-control">Phase 8 - Data Cleaning and Quality Control</a></li>
+  <li><a href="#phase-9---photo-normalization-and-image-derived-outcomes" id="toc-phase-9---photo-normalization-and-image-derived-outcomes" class="nav-link" data-scroll-target="#phase-9---photo-normalization-and-image-derived-outcomes">Phase 9 - Photo Normalization and Image-Derived Outcomes</a></li>
+  <li><a href="#phase-10---primary-analysis" id="toc-phase-10---primary-analysis" class="nav-link" data-scroll-target="#phase-10---primary-analysis">Phase 10 - Primary Analysis</a></li>
+  <li><a href="#phase-11---sensitivity-exploratory-and-learning-analyses" id="toc-phase-11---sensitivity-exploratory-and-learning-analyses" class="nav-link" data-scroll-target="#phase-11---sensitivity-exploratory-and-learning-analyses">Phase 11 - Sensitivity, Exploratory, and Learning Analyses</a></li>
+  <li><a href="#phase-12---final-decision-report-and-public-facing-writeup" id="toc-phase-12---final-decision-report-and-public-facing-writeup" class="nav-link" data-scroll-target="#phase-12---final-decision-report-and-public-facing-writeup">Phase 12 - Final Decision Report and Public-Facing Writeup</a></li>
+  <li><a href="#phase-13---archival-reproducibility-and-future-reuse" id="toc-phase-13---archival-reproducibility-and-future-reuse" class="nav-link" data-scroll-target="#phase-13---archival-reproducibility-and-future-reuse">Phase 13 - Archival, Reproducibility, and Future Reuse</a></li>
+  <li><a href="#trial-start-checklist" id="toc-trial-start-checklist" class="nav-link" data-scroll-target="#trial-start-checklist">Trial Start Checklist</a></li>
+  <li><a href="#data-lock-checklist" id="toc-data-lock-checklist" class="nav-link" data-scroll-target="#data-lock-checklist">Data Lock Checklist</a></li>
+  <li><a href="#future-agent-execution-order" id="toc-future-agent-execution-order" class="nav-link" data-scroll-target="#future-agent-execution-order">Future Agent Execution Order</a></li>
+  <li><a href="#resolved-design-decisions" id="toc-resolved-design-decisions" class="nav-link" data-scroll-target="#resolved-design-decisions">Resolved Design Decisions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="snail-92-trial-implementation-plan" class="level1">
+<h1>Snail 92 Trial Implementation Plan</h1>
+<p><strong>Document status:</strong> Operational plan for executing the Snail 92 n-of-1 discontinuation trial from preparation through archival.</p>
+<p><strong>Source of truth:</strong> The revised preregistration-ready protocol at <code>protocol/preregistration/revised-preregistration-ready-protocol.md</code> controls the scientific design. This plan turns that protocol into a practical work sequence for the repository.</p>
+<p><strong>Core question:</strong> Can COSRX Advanced Snail 92 All In One Cream be removed from the current routine without worsening skin outcomes, while the rest of the routine remains stable?</p>
+<p><strong>Trial posture:</strong> This is an unblinded self-experiment. The participant, investigator, trial coordinator, data manager, statistician, and report author are the same person. The project borrows useful discipline from clinical trial operations - protocol freeze, logs, data QC, analysis lock, reproducible reporting - while omitting formalities that do not improve this self-experiment, such as IRB submission, clinicaltrials.gov registration, sponsor monitoring, and formal consent workflows.</p>
+<section id="design-alignment-notes" class="level2">
+<h2 class="anchored" data-anchor-id="design-alignment-notes">Design Alignment Notes</h2>
+<p>The fixed design constraints for this plan are:</p>
+<ul>
+<li>The treatment comparison is <strong>Snail 92 continuation versus Snail 92 omission with no replacement layer</strong>.</li>
+<li>The trial is <strong>open-label for current and future treatment assignment</strong>. There is no placebo, coded jar, sham layer, allocation concealment, or friend-held schedule.</li>
+<li>Safeguards focus on behavior consistency, prespecified outcomes, versioned documentation, restricted analysis choices, and separation of confirmatory versus exploratory interpretation.</li>
+<li>The public repository should contain templates, code, documentation, and reproducible outputs, not identifiable face photos or private raw data.</li>
+<li>Photos are part of the formal evidence package through metadata, normalization, quality control, and image-derived outcomes, but participant face photos remain private and will not appear in the public repository or public writeup.</li>
+<li>Public image-method graphics should use a publicly available demo photo, not a trial photo.</li>
+<li>Consumer hydration-meter readings are excluded from this trial.</li>
+<li>Official trial start date: <strong>June 7, 2026</strong>.</li>
+<li>Final outputs must include both a private decision report and a public-facing blog-style writeup.</li>
+</ul>
+</section>
+<section id="operating-principles" class="level2">
+<h2 class="anchored" data-anchor-id="operating-principles">Operating Principles</h2>
+<ul>
+<li>Follow the revised protocol unless a documented amendment is made before the affected milestone begins.</li>
+<li>Use existing repository conventions: <code>docs/</code> is rendered Quarto output, <code>supporting-docs/</code> is source documentation, <code>templates/</code> holds CSV templates, <code>analysis/</code> holds Quarto analysis pages, and <code>R/</code> holds lightweight reusable helpers.</li>
+<li>Do not build a Shiny app, database, web form, or complex data-entry interface for this trial. Manual CSV entry from templates is the planned data capture method.</li>
+<li>Filled raw CSVs are stored under the ignored path <code>data/raw/private/</code>. Participant photo files are stored under the ignored path <code>data/raw/photos/</code>. Templates are public.</li>
+<li>Keep raw data immutable. All cleaning, exclusion flags, derived scores, photo metrics, tables, and figures must be generated reproducibly from raw inputs.</li>
+<li>Avoid informal mid-trial analysis. Weekly QC may check completeness, ranges, file backup, and safety, but not condition-specific outcome summaries.</li>
+<li>The default decision rule is conservative: Snail 92 must earn its place. Inconclusive evidence does not justify continuing it.</li>
+</ul>
+</section>
+<section id="role-map" class="level2">
+<h2 class="anchored" data-anchor-id="role-map">Role Map</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Practical responsibility</th>
+<th>Performer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Participant</td>
+<td>Follows assigned routine, records symptoms, captures photos, reports adverse events</td>
+<td>User</td>
+</tr>
+<tr class="even">
+<td>Trial coordinator</td>
+<td>Runs checklists, maintains logs, protects protocol adherence</td>
+<td>User/Codex</td>
+</tr>
+<tr class="odd">
+<td>Data manager</td>
+<td>Maintains templates, raw-data freeze, QC reports, cleaning audit trail</td>
+<td>User/Codex</td>
+</tr>
+<tr class="even">
+<td>Photo workflow owner</td>
+<td>Maintains private photo storage, metadata, normalization, exclusions</td>
+<td>User/Codex</td>
+</tr>
+<tr class="odd">
+<td>Statistician</td>
+<td>Locks analysis choices, runs primary and sensitivity analyses</td>
+<td>User/Codex</td>
+</tr>
+<tr class="even">
+<td>Report author</td>
+<td>Produces private decision report and public blog post</td>
+<td>User/Codex</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="repository-output-map" class="level2">
+<h2 class="anchored" data-anchor-id="repository-output-map">Repository Output Map</h2>
+<p>This repository already contains a usable scaffold. The plan below recommends adding only the files that are useful for trial execution.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Current files to reference</th>
+<th>Recommended future files</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project shell</td>
+<td><code>snail92.Rproj</code>, <code>_quarto.yml</code>, <code>DESCRIPTION</code>, <code>renv.lock</code>, <code>.Rprofile</code></td>
+<td>None required before trial start</td>
+<td>Confirms R project, Quarto site, and package lockfile.</td>
+</tr>
+<tr class="even">
+<td>Core docs</td>
+<td><code>README.md</code>, <code>index.qmd</code>, <code>LICENSE.md</code></td>
+<td><code>supporting-docs/trial-master-file.md</code></td>
+<td><code>docs/</code> is rendered output; do not put source-only docs there.</td>
+</tr>
+<tr class="odd">
+<td>Protocol</td>
+<td><code>protocol/preregistration/revised-preregistration-ready-protocol.md</code>, <code>protocol/original-draft/original-protocol-draft.md</code>, <code>protocol/review/expert-stress-test-review.md</code>, <code>protocol/printable/*.docx</code></td>
+<td><code>supporting-docs/protocol-amendments.md</code>, optional <code>protocol/preregistration/preregistration-snapshot.md</code></td>
+<td>Revised protocol is the source of truth.</td>
+</tr>
+<tr class="even">
+<td>Schedule</td>
+<td><code>supporting-docs/schedule/README.md</code></td>
+<td><code>randomization/generate-randomization.R</code>, <code>randomization/randomization-seed.txt</code>, <code>randomization/treatment-schedule.csv</code>, public schedule hash</td>
+<td>Schedule is self-generated, unblinded, and locked before randomized-phase start.</td>
+</tr>
+<tr class="odd">
+<td>Data templates</td>
+<td><code>templates/daily_log_template.csv</code>, <code>templates/weekly_review_template.csv</code>, <code>templates/codebook_template.csv</code></td>
+<td><code>templates/photo_metadata_template.csv</code>, <code>templates/adverse_event_template.csv</code>, <code>templates/deviation_log_template.csv</code></td>
+<td>Keep templates public; keep filled data private by default.</td>
+</tr>
+<tr class="even">
+<td>Logs</td>
+<td><code>notes/decision-log.md</code>, <code>notes/deviations-log.md</code></td>
+<td><code>supporting-docs/adverse-event-log.md</code>, <code>supporting-docs/closeout-checklist.md</code></td>
+<td>If logs contain sensitive details, store working copies in ignored private paths and publish redacted summaries only.</td>
+</tr>
+<tr class="odd">
+<td>Analysis</td>
+<td><code>analysis/01_data_import.qmd</code> through <code>analysis/05_exploratory_analysis.qmd</code>, <code>R/*.R</code></td>
+<td>Optional <code>R/photo_normalization.R</code>, <code>R/report_tables_figures.R</code></td>
+<td>Existing analysis pages are placeholders and should be extended milestone by milestone.</td>
+</tr>
+<tr class="even">
+<td>Reports</td>
+<td><code>reports/interim/.gitkeep</code>, <code>reports/final/.gitkeep</code></td>
+<td><code>reports/final/private-decision-report.qmd</code>, <code>reports/final/public-blog-post.qmd</code></td>
+<td>Private report may stay out of public Git if it contains sensitive data or photos.</td>
+</tr>
+<tr class="odd">
+<td>Private files</td>
+<td><code>.gitignore</code> excludes <code>data/raw/private/</code>, <code>data/raw/photos/</code>, <code>private/</code>, <code>local/</code>, <code>photos/</code>, <code>outputs/private/</code>, and <code>reports/private/</code></td>
+<td>Filled raw CSVs and participant photos</td>
+<td>Confirm exclusions before trial start and before any push.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="milestone-overview" class="level2">
+<h2 class="anchored" data-anchor-id="milestone-overview">Milestone Overview</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Phase</th>
+<th>Name</th>
+<th>Timing</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td>Repository and documentation readiness</td>
+<td>Now, before protocol freeze</td>
+<td>Repo renders and critical documents are discoverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td>Protocol finalization and preregistration package</td>
+<td>Before any run-in data are decision-relevant</td>
+<td>Protocol, estimand, outcomes, exclusions, and analysis rules frozen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td>Materials procurement and intervention readiness</td>
+<td>Before run-in</td>
+<td>Products and measurement setup ready</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td>Randomization and schedule lock</td>
+<td>Before randomized phase</td>
+<td>Schedule generated or verified under protocol rules</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td>Measurement system validation and dry run</td>
+<td>During run-in or immediately before it</td>
+<td>Diary, photos, storage, and burden tested</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td>Trial initiation</td>
+<td>Day 1 of official run-in/randomized workflow as defined by protocol</td>
+<td>Baseline and first-day data captured</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td>Active trial conduct and monitoring</td>
+<td>Run-in and randomized phase</td>
+<td>Daily execution, QC, safety, and backup maintained</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td>Closeout after final observation</td>
+<td>Immediately after last planned observation</td>
+<td>Raw data and private photo archive frozen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td>Data cleaning and quality control</td>
+<td>After closeout, before primary analysis</td>
+<td>Clean datasets and QC reports generated reproducibly</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td>Photo normalization and image-derived outcomes</td>
+<td>After photo archive freeze, before outcome modeling</td>
+<td>Photo metadata and image metrics locked</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td>Primary analysis</td>
+<td>After data, exclusions, and scripts are locked</td>
+<td>Prespecified primary analysis completed</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11</td>
+<td>Sensitivity, exploratory, and learning analyses</td>
+<td>After primary analysis</td>
+<td>Robustness and learning analyses separated from primary inference</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td>Final decision report and public-facing writeup</td>
+<td>After analyses</td>
+<td>Private decision and public report completed</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13</td>
+<td>Archival, reproducibility, and future reuse</td>
+<td>After reporting</td>
+<td>Final repo state tagged and reproducibility documented</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="phase-0---repository-and-documentation-readiness" class="level2">
+<h2 class="anchored" data-anchor-id="phase-0---repository-and-documentation-readiness">Phase 0 - Repository and Documentation Readiness</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Confirm the project is a valid, renderable R/Quarto reproducible-research scaffold before trial-critical work begins.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Immediately, before protocol freeze and before generating any official schedule.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Repository is cloned locally; current branch is the intended trial-preparation branch.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Trial coordinator and reproducible research engineer.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>snail92.Rproj</code>, <code>_quarto.yml</code>, <code>README.md</code>, <code>index.qmd</code>, <code>DESCRIPTION</code>, <code>renv.lock</code>, <code>.gitignore</code>, <code>data/README.md</code>, <code>templates/*.csv</code>, <code>analysis/*.qmd</code>, <code>R/*.R</code>, <code>supporting-docs/*</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Confirm <code>snail92.Rproj</code> exists and the repository root is the R project root.</li>
+<li>Confirm <code>DESCRIPTION</code> declares project dependencies and <code>renv.lock</code> is present.</li>
+<li>Run <code>quarto render</code> from the repository root and confirm the site renders to <code>docs/</code>.</li>
+<li>Confirm <code>README.md</code> and <code>index.qmd</code> link the revised protocol, data guide, notes, and this implementation plan.</li>
+<li>Confirm <code>supporting-docs/</code> is the source documentation area and <code>docs/</code> remains generated Quarto output.</li>
+<li>Confirm the revised preregistration protocol, original draft, review report, shopping list, schedule notes, analysis scaffold, templates, decision log, and deviation log are version-controlled.</li>
+<li>Confirm <code>.gitignore</code> excludes private data and photo locations, including <code>data/raw/private/</code>, <code>data/raw/photos/</code>, <code>private/</code>, <code>local/</code>, and <code>photos/</code>.</li>
+<li>Confirm no private images or filled raw diary files are already tracked.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Rendered Quarto website in <code>docs/</code>.</li>
+<li>Discoverable implementation plan at <code>supporting-docs/implementation-plan.md</code>.</li>
+<li>Updated document links in <code>README.md</code> and <code>index.qmd</code>.</li>
+<li>Any repository-readiness findings recorded in <code>notes/decision-log.md</code> if they affect trial execution.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li><code>quarto render</code> completes without errors.</li>
+<li><code>git status --short</code> shows only intentional documentation edits.</li>
+<li>Trial-critical documents are reachable from the README or Quarto home page.</li>
+<li>No private photo files or filled private raw data are tracked.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>The site fails to render because analysis pages assume non-existent trial data.</li>
+<li>Source docs are accidentally written under <code>docs/</code>, then overwritten by Quarto.</li>
+<li>Private files are committed accidentally.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Keep data-dependent analysis pages scaffold-safe until data exist.</li>
+<li>Store source documentation under <code>supporting-docs/</code>, <code>protocol/</code>, <code>analysis/</code>, <code>R/</code>, <code>templates/</code>, <code>notes/</code>, and <code>reports/</code>, not <code>docs/</code>.</li>
+<li>Run <code>git status --short</code> and <code>git check-ignore -v &lt;private-path&gt;</code> before committing or pushing.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-1---protocol-finalization-and-preregistration-package" class="level2">
+<h2 class="anchored" data-anchor-id="phase-1---protocol-finalization-and-preregistration-package">Phase 1 - Protocol Finalization and Preregistration Package</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Freeze the scientific question, estimand, outcomes, schedule rules, exclusion rules, safety rules, and analysis plan before trial data can influence decisions.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Before official run-in completion and before randomized-phase schedule lock.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Phase 0 is complete; the user has reviewed the revised preregistration-ready protocol.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Investigator, statistician, and trial coordinator.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>protocol/preregistration/revised-preregistration-ready-protocol.md</code>, <code>protocol/review/expert-stress-test-review.md</code>, <code>notes/decision-log.md</code>, <code>notes/deviations-log.md</code>, future <code>supporting-docs/protocol-amendments.md</code>, future <code>supporting-docs/trial-master-file.md</code>, optional <code>protocol/preregistration/preregistration-snapshot.md</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Declare <code>protocol/preregistration/revised-preregistration-ready-protocol.md</code> frozen as the primary source of truth for the trial.</li>
+<li>Verify the primary estimand remains: Snail 92 continuation versus Snail 92 omission with no replacement layer, with the rest of the routine held stable.</li>
+<li>Verify the primary outcome remains Morning Barrier Burden Score (MBBS), derived from dryness, tightness, and barrier comfort before morning skincare.</li>
+<li>Verify secondary, exploratory, safety, and photo-derived outcomes are classified exactly as the protocol states.</li>
+<li>Verify the randomized design: 21-day run-in, 10 periods x 6 nights, 5 continuation and 5 omission periods, maximum run length 2, no strict alternation, transition days 1-2, analyzable days 3-6.</li>
+<li>Verify the decision rule: keep Snail 92 only if omission is worse by at least 0.5 MBBS points, exact randomization inference supports benefit, period patterns are compatible, and no countervailing safety/acne/irritation harm is present.</li>
+<li>Document explicitly that the treatment assignment is unblinded and no placebo, coded jar, sham layer, or replacement product is used.</li>
+<li>Confirm that the schedule is self-generated, unblinded, and locked before randomized-phase start.</li>
+<li>Create a preregistration-style snapshot that records the protocol version, June 7, 2026 trial start date, randomization restrictions, analysis sequence, decision rule, randomization seed, and schedule hash.</li>
+<li>Create a trial master file-style index that lists protocol, templates, schedule materials, logs, data locations, analysis pages, reports, and archival locations.</li>
+<li>Create a protocol-amendment log before trial start. After this phase, every design change must be logged with date, rationale, timing relative to data collection, and effect on analysis.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Frozen protocol or amendment record.</li>
+<li><code>supporting-docs/trial-master-file.md</code>.</li>
+<li><code>supporting-docs/protocol-amendments.md</code>.</li>
+<li>Optional <code>protocol/preregistration/preregistration-snapshot.md</code>.</li>
+<li>Updated <code>notes/decision-log.md</code> entry documenting the freeze.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>A future agent can identify the frozen protocol, decision rule, analysis plan, schedule restrictions, and amendment process without asking the user.</li>
+<li>No design element implies blinded treatment comparison or friend-held allocation.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>The trial drifts from the discontinuation question into Snail 92 versus a replacement hydrator.</li>
+<li>Mid-trial reinterpretation of outcomes changes the effective decision rule.</li>
+<li>Protocol amendments are made informally in chat or notes but not captured in the repo.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Keep the central question quoted in the protocol, README, and final reports.</li>
+<li>Use the amendment log for all post-freeze changes.</li>
+<li>Separate primary, sensitivity, and exploratory analysis pages.</li>
+<li>Do not create comparator-product procedures in this trial.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-2---materials-procurement-and-intervention-readiness" class="level2">
+<h2 class="anchored" data-anchor-id="phase-2---materials-procurement-and-intervention-readiness">Phase 2 - Materials Procurement and Intervention Readiness</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Confirm the participant can administer continuation and omission periods consistently and safely without scrambling for supplies mid-trial.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Before run-in begins, with final confirmation before randomized phase.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Phase 1 design is stable enough to know required products and measurement tools.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Trial coordinator, participant, and materials manager.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>supporting-docs/shopping-list/README.md</code>, <code>protocol/printable/printable-shopping-list.docx</code>, future <code>supporting-docs/trial-master-file.md</code>, future materials/accountability section or log.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Confirm adequate supply of Snail 92 for all continuation periods and current routine products for the full run-in and randomized phase.</li>
+<li>Confirm no replacement moisturizer, generic hydrator, placebo, or coded jar is needed for the primary comparison.</li>
+<li>Confirm the default cleanser, rescue cleanser, Kikumasamune toner/lotion, retinol, Lipikar AP+M, sunscreen, shaving products, and pillowcase schedule are available.</li>
+<li>Confirm photo setup materials: fixed tripod or mount, floor/location markers, consistent background, gray or neutral reference card, and enough private device or drive storage.</li>
+<li>Record product names, lot numbers if available, opening dates, storage location, and any material substitutions.</li>
+<li>Define product handling: same approximate amount, same order, same timing, no intentional new skincare products during randomized phase unless medically necessary.</li>
+<li>Confirm run-in requirements from the protocol: 21 days, final 7-day stability criteria, and one possible 7-day extension.</li>
+<li>Set up a lightweight materials accountability log only for trial-critical items: Snail 92, retinol, cleanser, rescue cleanser, sunscreen, and photo reference card.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Confirmed materials list.</li>
+<li>Lightweight materials/accountability log, either in <code>supporting-docs/trial-master-file.md</code> or a separate supporting document.</li>
+<li>Private photo storage path created under the ignored location <code>data/raw/photos/</code>.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>The user can complete all run-in and randomized-phase routines without changing products because of supply failure.</li>
+<li>The omission period can be administered as “skip Snail 92” with no replacement layer.</li>
+<li>Photo setup can be reproduced without daily improvisation.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Product runs out or a product formulation changes during the trial.</li>
+<li>The photo setup is too hard to reproduce.</li>
+<li>Materials logging becomes burdensome and threatens adherence.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Buy or set aside sufficient product before trial start.</li>
+<li>Keep product logging to start date, lot if available, and deviations.</li>
+<li>Use fixed physical markers for photo position and camera setup.</li>
+<li>Treat exact product mass as optional unless the protocol is amended to require weighing.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-3---randomization-and-schedule-lock" class="level2">
+<h2 class="anchored" data-anchor-id="phase-3---randomization-and-schedule-lock">Phase 3 - Randomization and Schedule Lock</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Generate or verify the treatment schedule under the frozen randomization rules and prevent ad hoc schedule changes after trial start.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After run-in stability is likely and before the randomized phase begins.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Phase 1 protocol freeze complete; Phase 2 materials ready; run-in final 7-day stability criteria are met or expected to be met.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Statistician and trial coordinator.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td>Future <code>randomization/generate-randomization.R</code>, future <code>randomization/randomization-seed.txt</code>, future <code>randomization/treatment-schedule.csv</code>, future <code>randomization/schedule_sha256_hash.txt</code>, <code>.gitignore</code>, <code>supporting-docs/schedule/README.md</code>, future <code>supporting-docs/protocol-amendments.md</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Implement or verify an R script that enumerates balanced 10-period sequences with 5 continuation and 5 omission periods, maximum run length 2, and no strict alternation.</li>
+<li>Record the randomization seed, generation script, generated schedule, and schedule hash.</li>
+<li>Create participant-facing schedule materials if useful; they may show the full schedule because allocation concealment is not part of the final design.</li>
+<li>Document that the treatment itself is unblinded: on any active day the user knows whether Snail 92 is used or skipped.</li>
+<li>Define handling of missed days, deviations, travel, illness, adverse reactions, product interruptions, and schedule disruptions using the protocol’s rules.</li>
+<li>Lock the active randomized schedule. Do not reorder periods, extend periods, or repeat periods after trial start unless the protocol’s extension rule or safety rule applies.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Schedule-generation script.</li>
+<li>Randomization seed, schedule-generation script, full schedule, and schedule hash.</li>
+<li>Participant-facing schedule or daily assignment process.</li>
+<li>Schedule lock entry in <code>notes/decision-log.md</code>.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>The schedule satisfies the protocol’s restrictions.</li>
+<li>Assignment records can be joined to daily diary rows by date and period number.</li>
+<li>Schedule files are explicit and version-controlled unless the user intentionally stores working copies elsewhere.</li>
+<li>Rules for disruptions are written before the randomized phase starts.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>The schedule accidentally becomes predictable or invalid.</li>
+<li>Concealed files are committed.</li>
+<li>Missed days trigger informal period extensions.</li>
+<li>The user changes the schedule in response to symptoms.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use a deterministic script and save a hash.</li>
+<li>Confirm the schedule is generated once, hashed, and locked before randomized-phase start.</li>
+<li>Log deviations rather than editing the schedule.</li>
+<li>Use the extension rule only if validity thresholds fail before primary analysis.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-4---measurement-system-validation-and-dry-run" class="level2">
+<h2 class="anchored" data-anchor-id="phase-4---measurement-system-validation-and-dry-run">Phase 4 - Measurement System Validation and Dry Run</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Prove that diary, photo, storage, metadata, and daily workflow procedures are feasible before official data collection depends on them.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>During run-in or a short pre-run-in dry run; complete before randomized phase.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Materials and templates are available; photo setup can be assembled.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Trial coordinator, data manager, photo workflow owner, and participant.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>templates/daily_log_template.csv</code>, <code>templates/weekly_review_template.csv</code>, <code>templates/codebook_template.csv</code>, future <code>templates/photo_metadata_template.csv</code>, future <code>templates/adverse_event_template.csv</code>, future <code>templates/deviation_log_template.csv</code>, <code>data/README.md</code>, future <code>supporting-docs/photo-workflow.md</code>, <code>R/data_validation.R</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Create working private copies of CSV templates in <code>data/raw/private/</code>. Keep the public templates unchanged except through intentional template updates.</li>
+<li>Test one complete morning diary entry before washing, shaving, or applying products.</li>
+<li>Test one complete evening adherence entry after the routine.</li>
+<li>Test weekly review fields without looking at condition-specific summaries.</li>
+<li>Standardize photo capture: same time of day, before products, same location, same lighting, same background, same camera, rear camera, fixed mount, fixed distance, fixed angle, frontal/left 45/right 45 views, no beauty filters or portrait smoothing.</li>
+<li>Define photo file naming, for example <code>YYYY-MM-DD_session-&lt;id&gt;_view-front_raw.jpg</code>, <code>view-left45</code>, and <code>view-right45</code>.</li>
+<li>Define private photo directory structure under <code>data/raw/photos/</code>, with subfolders such as <code>raw/</code>, <code>normalized/</code>, and <code>qc/</code>.</li>
+<li>Test photo transfer from device to private local storage and confirm no photo path is tracked by Git.</li>
+<li>Create or verify a photo metadata template with date, session id, scheduled flag, taken flag, view, filename, private path placeholder, lighting notes, gray-card presence, quality flags, and exclusion reason.</li>
+<li>Test minimal validation: date parsing, required columns, numeric ranges, condition values, missingness summary, and MBBS derivation.</li>
+<li>Define minimum viable data collection if burden becomes difficult: morning MBBS components, evening actual condition/adherence, safety/rescue actions, and scheduled photo metadata.</li>
+<li>Confirm total daily burden is realistic.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Dry-run daily and weekly entries in private working files.</li>
+<li>Draft <code>supporting-docs/photo-workflow.md</code>.</li>
+<li>Photo metadata template.</li>
+<li>Validation checklist output or notes.</li>
+<li>Burden assessment recorded in <code>notes/decision-log.md</code> if it changes procedures.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>A full morning plus evening data capture can be completed on a normal day.</li>
+<li>At least one test photo session can be captured, transferred, named, and matched to metadata.</li>
+<li>Validation helpers can read the CSV structure or the required updates are identified before trial start.</li>
+<li>The user knows the minimum viable fields to protect the primary analysis.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Photos are inconsistently lit or framed.</li>
+<li>Manual CSV entry is too burdensome.</li>
+<li>Photo files and metadata fall out of sync.</li>
+<li>The user starts optimizing behavior based on dry-run impressions.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use physical markers and a written photo checklist.</li>
+<li>Keep dry-run data out of analysis unless the protocol explicitly allows run-in summaries.</li>
+<li>Use session IDs consistently across diary and photo metadata.</li>
+<li>Do not review condition-specific outcome patterns during dry run or run-in.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-5---trial-initiation" class="level2">
+<h2 class="anchored" data-anchor-id="phase-5---trial-initiation">Phase 5 - Trial Initiation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Start official trial procedures cleanly, with baseline documentation and first-day capture completed under the frozen plan.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Official trial start date: June 7, 2026.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Phases 0-4 complete; no unresolved safety issue.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Trial coordinator and participant.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>protocol/preregistration/revised-preregistration-ready-protocol.md</code>, working private daily log, working private photo metadata, <code>notes/decision-log.md</code>, <code>notes/deviations-log.md</code>, future <code>supporting-docs/trial-master-file.md</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Complete the trial start checklist.</li>
+<li>Record baseline routine, product availability, photo setup, current skin status, and any relevant recent events.</li>
+<li>Confirm routine stability: no new skincare, makeup base product, procedure, device treatment, medication change, intentional diet change, sleep intervention, shaving product change, or environmental exposure plan is being introduced unless allowed by protocol.</li>
+<li>Confirm sunscreen, retinol cadence, cleanser rule, rescue cleanser rule, Lipikar use, and Snail 92 continuation/omission instructions.</li>
+<li>Capture first-day morning diary before products.</li>
+<li>Capture first-day photo session if scheduled by protocol or dry-run plan.</li>
+<li>Complete first evening adherence entry.</li>
+<li>Lock active schedule process for the randomized phase.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Baseline entry in private daily log.</li>
+<li>Baseline photo metadata and private photo files if scheduled.</li>
+<li>Trial start confirmation in <code>notes/decision-log.md</code>.</li>
+<li>Any startup deviation recorded in <code>notes/deviations-log.md</code> or private equivalent.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Official start date is clear.</li>
+<li>Baseline procedures are complete.</li>
+<li>No unresolved setup issue threatens the first week of data collection.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Trial starts while routine is unstable.</li>
+<li>Baseline is reconstructed from memory later.</li>
+<li>First-day photo or diary is missed because the workflow was not ready.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use the dry-run checklist before declaring start.</li>
+<li>If final 7-day run-in stability criteria fail, extend run-in once as specified by protocol.</li>
+<li>Log a missed first-day measure rather than inventing data.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-6---active-trial-conduct-and-monitoring" class="level2">
+<h2 class="anchored" data-anchor-id="phase-6---active-trial-conduct-and-monitoring">Phase 6 - Active Trial Conduct and Monitoring</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Execute the trial consistently while preserving data integrity, safety, and interpretation discipline.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>From run-in start through the final randomized observation.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Trial initiated; schedule and data capture workflow active.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Participant, trial coordinator, data manager, and safety monitor.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td>Working private daily and weekly logs, working private photo metadata, <code>notes/deviations-log.md</code>, future adverse-event log, <code>data/README.md</code>, <code>analysis/02_quality_checks.qmd</code>, <code>R/data_validation.R</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Complete daily morning diary before washing, showering, shaving, touching face excessively, or applying products.</li>
+<li>Complete evening adherence log after skincare.</li>
+<li>Capture photos on the protocol schedule: Monday, Wednesday, Saturday by default, before products and under standardized conditions.</li>
+<li>Track intervention adherence: assigned condition, actual condition, Snail 92 used, retinol scheduled/used, cleanser type, rescue cleanser use, Lipikar, sunscreen, and trial-step adherence.</li>
+<li>Log symptoms and safety events, including burning, stinging, irritation, flaking, rash, eyelid involvement, acne flare, retinol pause, cleanser rescue, and trial stoppage.</li>
+<li>Log protocol deviations, travel, illness, medication changes, sun/wind exposure, heavy sweating, mask use, shaving, pillowcase changes, and other confounders defined by protocol.</li>
+<li>Perform weekly or block-level QC limited to completeness, date continuity, range checks, required fields, photo counts, photo file backup, and safety review.</li>
+<li>Back up private raw data and photos to a second private location.</li>
+<li>Monitor photo quality for objective capture failures such as blur, wrong view, missing gray card, product applied before photo, or severe lighting mismatch.</li>
+<li>Do not use mid-trial visual review or condition-specific summaries to change behavior or reinterpret outcomes.</li>
+<li>Apply rules for pausing, continuing, terminating early, or safety rescue as written in the protocol.</li>
+<li>Maintain separation between raw, cleaned, and derived data. Do not edit raw entries after export except by adding clearly versioned correction notes.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Current private daily log and weekly review log.</li>
+<li>Current private photo archive and metadata.</li>
+<li>Deviation and adverse-event entries as needed.</li>
+<li>Weekly QC notes or generated QC output.</li>
+<li>Backup confirmation.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Daily MBBS components are captured on enough analyzable days to protect the primary analysis.</li>
+<li>Photo sessions are either captured as scheduled or marked missing without make-up bias.</li>
+<li>Deviations and safety events are logged near real time.</li>
+<li>No informal primary analysis is run before data lock.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Adherence falls because the workflow is too heavy.</li>
+<li>The user selectively focuses on outcomes that match expectations.</li>
+<li>Safety symptoms are minimized to preserve the trial.</li>
+<li>Photo QC becomes outcome inspection.</li>
+<li>Raw and processed files become mixed.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use the minimum viable data collection rule when needed.</li>
+<li>Keep QC scripts from showing condition-specific outcome summaries during active conduct.</li>
+<li>Treat safety rescue as part of the protocol, not as failure.</li>
+<li>Store raw files separately from processed files and use script-generated outputs only.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-7---closeout-after-final-observation" class="level2">
+<h2 class="anchored" data-anchor-id="phase-7---closeout-after-final-observation">Phase 7 - Closeout After Final Observation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Close the data-collection period without retrospective editing, then freeze raw data, photo archives, and logs for analysis.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Immediately after the final scheduled observation or early termination.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Final planned randomized observation completed, extension decision made, or safety termination invoked.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Trial coordinator and data manager.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td>Working private raw logs, private photo archive, <code>notes/deviations-log.md</code>, future <code>supporting-docs/closeout-checklist.md</code>, future adverse-event log, future <code>supporting-docs/trial-master-file.md</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Complete final morning diary and final scheduled photo capture if applicable.</li>
+<li>Complete final evening adherence/safety log.</li>
+<li>Reconcile product/accountability notes if useful: product availability, rescue actions, retinol pauses, and material substitutions.</li>
+<li>Review protocol deviations for completeness, not for outcome favorability.</li>
+<li>Review adverse events and safety rescues for completeness.</li>
+<li>Freeze raw diary, weekly review, adverse-event, deviation, and photo metadata files by copying them to a dated private raw-data archive.</li>
+<li>Freeze private photo archive in a dated private folder.</li>
+<li>Record raw-data freeze timestamp and storage path in the trial master file or closeout checklist.</li>
+<li>Document missingness and exclusion candidates before running outcome models.</li>
+<li>Decide whether the protocol extension rule applies before any schedule reveal or primary analysis.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Completed closeout checklist.</li>
+<li>Frozen private raw-data archive.</li>
+<li>Frozen private photo archive.</li>
+<li>Final deviation and adverse-event logs.</li>
+<li>Extension/no-extension decision record.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Raw data and photos are frozen before cleaning.</li>
+<li>The decision to extend, stop, or analyze is documented before looking at primary results.</li>
+<li>Missingness and likely exclusions are listed before modeling.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Late edits are made directly to raw files.</li>
+<li>Photo files remain scattered across devices.</li>
+<li>Missingness decisions are influenced by early outcome plots.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use dated archive folders and checksum or file listing.</li>
+<li>Make corrections through separate cleaning scripts or correction logs.</li>
+<li>Run only structural completeness checks before analysis.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-8---data-cleaning-and-quality-control" class="level2">
+<h2 class="anchored" data-anchor-id="phase-8---data-cleaning-and-quality-control">Phase 8 - Data Cleaning and Quality Control</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Convert frozen raw data into auditable, analysis-ready datasets without changing the raw record.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After Phase 7 closeout and before primary analysis.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Frozen raw logs and photo metadata exist; exclusion candidates documented.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Data manager and statistician.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>analysis/01_data_import.qmd</code>, <code>analysis/02_quality_checks.qmd</code>, <code>R/data_validation.R</code>, <code>R/scoring.R</code>, <code>templates/codebook_template.csv</code>, <code>data/README.md</code>, <code>data/metadata/</code>, private raw-data path, <code>data/processed/</code> only for intentionally shareable processed outputs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Import frozen raw daily log, weekly review, adverse-event log, deviation log, and photo metadata from the private source path.</li>
+<li>Validate dates, day numbers, phase values, period numbers, period days, treatment assignments, actual condition, adherence fields, expected ranges, binary fields, and categorical values.</li>
+<li>Validate MBBS components and derive MBBS using <code>R/scoring.R</code>.</li>
+<li>Validate schedule joins: each randomized date maps to exactly one assigned period and condition.</li>
+<li>Validate missingness by field, day, period, and phase.</li>
+<li>Validate adherence thresholds and valid-period flags according to the protocol.</li>
+<li>Validate photo metadata: scheduled photo days, session IDs, view completeness, filename conventions, private path placeholders, quality flags, and exclusion reasons.</li>
+<li>Produce cleaning script or Quarto output that records every transformation.</li>
+<li>Produce or update a data dictionary in <code>data/metadata/</code>.</li>
+<li>Create derived analysis datasets from raw inputs, preserving raw files unchanged.</li>
+<li>Produce QC tables and figures for completeness, ranges, adherence, deviations, and missingness.</li>
+<li>Flag questionable observations rather than silently dropping them.</li>
+<li>Keep private photos outside Git and avoid committing sensitive raw data unless the user intentionally prepares a public release.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Clean daily analysis dataset.</li>
+<li>Clean weekly review dataset.</li>
+<li>Clean adverse-event and deviation datasets.</li>
+<li>Clean photo metadata dataset.</li>
+<li>Data dictionary.</li>
+<li>QC report and QC tables/figures.</li>
+<li>Cleaning audit trail.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Every exclusion flag is explainable from frozen raw data and prespecified rules.</li>
+<li>Raw data are unchanged after freeze.</li>
+<li>Derived datasets can be regenerated by rerunning scripts or Quarto pages.</li>
+<li>QC report identifies missingness, deviations, valid periods, and photo availability.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Manual cleaning hides decisions.</li>
+<li>Invalid dates or treatment joins contaminate primary analysis.</li>
+<li>Questionable rows are dropped without an audit trail.</li>
+<li>Private data are accidentally written to public paths.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use scripted cleaning only.</li>
+<li>Write all path-sensitive code so private input and public output locations are explicit.</li>
+<li>Save exclusion flags as columns.</li>
+<li>Inspect <code>git status --short</code> before any commit.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-9---photo-normalization-and-image-derived-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="phase-9---photo-normalization-and-image-derived-outcomes">Phase 9 - Photo Normalization and Image-Derived Outcomes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Turn private standardized photos into reproducible, documented image-derived variables while keeping private images out of the public repo.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After photo archive freeze and before primary or secondary image-outcome modeling.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Frozen private photo archive and clean photo metadata exist.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Photo workflow owner, data manager, and statistician.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td>Future <code>supporting-docs/photo-workflow.md</code>, future <code>R/photo_normalization.R</code>, <code>analysis/05_exploratory_analysis.qmd</code>, <code>data/metadata/</code>, private photo directory, <code>.gitignore</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Confirm private photo directory structure and backup:
+<ul>
+<li><code>data/raw/photos/raw/</code></li>
+<li><code>data/raw/photos/normalized/</code></li>
+<li><code>data/raw/photos/qc/</code></li>
+</ul></li>
+<li>Link each photo session to trial date, phase, period number, period day, scheduled flag, and treatment period through metadata, not through visual inspection.</li>
+<li>Confirm view completeness for frontal, left 45, and right 45 images.</li>
+<li>Apply objective photo-exclusion criteria before outcome modeling: wrong lighting, missing view, product already applied, major blur, major pose mismatch, missing or unusable reference card if required for a metric.</li>
+<li>Define normalization steps: color reference or gray-card correction, lighting normalization, crop or region of interest, scale handling, and quality thresholds.</li>
+<li>Define fixed regions of interest from the protocol: left cheek, right cheek, central forehead, and chin.</li>
+<li>Generate prespecified image-derived variables, especially CIELAB median <code>a*</code> redness if gray-card normalization is available.</li>
+<li>Mark exploratory image features separately, such as R/G redness ratio, local texture variance, and any manual visual scoring.</li>
+<li>Save scripts and metadata publicly, but do not save private source photos in Git.</li>
+<li>Document all image-processing exclusions before outcome modeling.</li>
+<li>Produce a photo QC summary table with counts by scheduled session, view, usable status, exclusion reason, and period.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Photo workflow document.</li>
+<li>Photo metadata with QC and exclusion flags.</li>
+<li>Reproducible photo-normalization script.</li>
+<li>Image-derived analysis dataset.</li>
+<li>Photo QC summary.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Image-derived variables can be regenerated from private photos using public code plus documented private paths.</li>
+<li>Exclusions are made before treatment-result interpretation.</li>
+<li>Prespecified image outcomes and exploratory image features are clearly separated.</li>
+<li>No private photo file is tracked.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Lighting variation dominates redness metrics.</li>
+<li>Region-of-interest selection is adjusted after seeing results.</li>
+<li>Blog photos are handpicked to tell a stronger story.</li>
+<li>Private face images leak into the public repo.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use fixed photo setup and gray-card normalization.</li>
+<li>Predefine ROI rules and exclusion criteria in <code>supporting-docs/photo-workflow.md</code>.</li>
+<li>Use clearly labeled public demo images for method explanation, not participant trial photos.</li>
+<li>Run <code>git status --short</code> and check ignored paths before committing.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-10---primary-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="phase-10---primary-analysis">Phase 10 - Primary Analysis</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Execute the prespecified primary analysis and apply the decision rule before exploratory interpretation.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After Phases 8 and 9 are locked and the self-generated schedule is verified against the saved seed/script/hash.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Clean analysis datasets, valid-period flags, photo exclusions, and primary analysis code are locked.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Statistician.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>analysis/03_primary_analysis.qmd</code>, <code>R/analysis_models.R</code>, <code>R/scoring.R</code>, <code>R/plotting.R</code>, cleaned private or public analysis datasets, <code>data/metadata/</code>, <code>tables/</code>, <code>figures/</code>, <code>outputs/</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Verify the randomized schedule against the saved hash or generation record.</li>
+<li>Filter primary analysis population: randomized phase, period days 3-6, valid periods, MBBS available, assigned condition known, no full trial stoppage.</li>
+<li>Calculate the primary statistic: mean MBBS during omission minus mean MBBS during continuation.</li>
+<li>Run exact randomization inference under the same restricted randomization scheme used to generate the schedule.</li>
+<li>Report uncertainty and the randomization-reference result without using sensitivity or exploratory analyses as a gateway.</li>
+<li>Produce descriptive plots: daily MBBS over time, shaded treatment periods, transition days, retinol pauses, cleanser rescues, component outcomes, and period-level MBBS means.</li>
+<li>Integrate formal photo-derived outcomes only according to their prespecified role. Do not let exploratory image features override MBBS.</li>
+<li>Check practical interpretation against the decision rule: effect size &gt;= 0.5 MBBS, randomization support, period compatibility, and no countervailing safety/acne/irritation harm.</li>
+<li>Save primary analysis outputs reproducibly.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Primary analysis report page.</li>
+<li>Primary result table.</li>
+<li>Randomization inference reference distribution figure.</li>
+<li>MBBS time-series and period-summary figures.</li>
+<li>Decision-rule checklist.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>The primary result can be regenerated from locked data and code.</li>
+<li>The analysis follows the protocol’s estimand and valid-period rules.</li>
+<li>Exploratory findings are not used to rescue a weak primary result.</li>
+<li>The decision implication is stated with uncertainty.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Analysis code silently changes the primary population.</li>
+<li>Sensitivity analyses influence the primary conclusion before the primary result is recorded.</li>
+<li>Post-treatment variables such as rescue cleanser or retinol pause are incorrectly adjusted away in the primary model.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Store primary population filters visibly in <code>analysis/03_primary_analysis.qmd</code>.</li>
+<li>Run and save the primary analysis before sensitivity pages.</li>
+<li>Treat rescue actions as part of the treatment-policy estimand unless the protocol is amended before analysis.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-11---sensitivity-exploratory-and-learning-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="phase-11---sensitivity-exploratory-and-learning-analyses">Phase 11 - Sensitivity, Exploratory, and Learning Analyses</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Evaluate robustness, explore secondary outcomes, and learn about feasibility without changing the primary decision rule.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After Phase 10 primary analysis is recorded.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Primary analysis outputs are saved.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Statistician, data manager, and report author.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>analysis/04_sensitivity_analyses.qmd</code>, <code>analysis/05_exploratory_analysis.qmd</code>, <code>R/analysis_models.R</code>, <code>R/plotting.R</code>, <code>figures/</code>, <code>tables/</code>, <code>outputs/</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Run lag and transition sensitivity analyses:
+<ul>
+<li>primary window period days 3-6</li>
+<li>period days 2-6</li>
+<li>all period days</li>
+<li>period days 4-6</li>
+<li>same-condition adjacent periods without transition exclusion for the second period</li>
+</ul></li>
+<li>Assess sensitivity to missing data, invalid periods, deviations, carryover, time trends, measurement noise, photo quality, and image-normalization choices.</li>
+<li>Summarize secondary outcomes: individual MBBS components, flaking, redness, burning, stinging, itching, irritation, weekly global ratings, rescue actions, retinol pauses, sunscreen adherence, and image-derived redness.</li>
+<li>Summarize safety and harm outcomes, especially whether continuation worsens irritation, redness, acne, or safety events.</li>
+<li>Keep acne, pore appearance, texture, and qualitative photo review clearly exploratory unless the protocol specifies otherwise.</li>
+<li>Perform exploratory qualitative photo review only after the formal photo-exclusion and image-derived metric datasets are locked.</li>
+<li>Document lessons learned: feasibility, daily burden, adherence, missingness, photo workflow quality, template adequacy, and what should change in a future trial.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Sensitivity analysis report.</li>
+<li>Exploratory analysis report.</li>
+<li>Robustness summary table.</li>
+<li>Feasibility and lessons-learned notes.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>Sensitivity analyses are labeled supportive and do not redefine the primary conclusion.</li>
+<li>Exploratory results are separated visually and textually from confirmatory results.</li>
+<li>Any disagreement between primary and sensitivity findings is reported plainly.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Exploratory photo or acne findings become the real decision criterion.</li>
+<li>Robustness checks are selectively reported.</li>
+<li>Lessons learned are omitted because they are not flattering.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use separate Quarto pages for sensitivity and exploratory work.</li>
+<li>Report all prespecified sensitivity analyses.</li>
+<li>Include a feasibility section even if adherence was imperfect.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-12---final-decision-report-and-public-facing-writeup" class="level2">
+<h2 class="anchored" data-anchor-id="phase-12---final-decision-report-and-public-facing-writeup">Phase 12 - Final Decision Report and Public-Facing Writeup</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Convert the locked analysis into a private decision and a public explanation that is useful, honest, and appropriately limited.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After primary, sensitivity, exploratory, and photo analyses are complete.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Analysis outputs are complete; private/public boundaries are clear.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Report author, statistician, and privacy reviewer.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td>Future <code>reports/final/private-decision-report.qmd</code>, future <code>reports/final/public-blog-post.qmd</code>, <code>analysis/*.qmd</code>, <code>figures/</code>, <code>tables/</code>, <code>outputs/</code>, private photo archive, <code>.gitignore</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Produce a private technical decision report that includes:
+<ul>
+<li>protocol version</li>
+<li>adherence and missingness</li>
+<li>valid periods</li>
+<li>primary MBBS result</li>
+<li>randomization inference result</li>
+<li>secondary outcomes</li>
+<li>photo-derived outcomes</li>
+<li>safety and acne harm review</li>
+<li>sensitivity analysis summary</li>
+<li>final decision: keep Snail 92, remove Snail 92, or uncertain/discontinue by default</li>
+</ul></li>
+<li>Produce a public blog-post-style summary that explains:
+<ul>
+<li>the personal decision question</li>
+<li>why omission, not replacement, was tested</li>
+<li>why the trial was unblinded</li>
+<li>how randomization and prespecification reduced bias</li>
+<li>what the primary result means and does not mean</li>
+<li>how uncertainty and limitations affect interpretation</li>
+<li>why personal evidence is not general skincare advice</li>
+</ul></li>
+<li>Use a publicly available demo photo for any public image-method graphics; do not publish participant face photos.</li>
+<li>Remove or avoid participant photos, sensitive raw data, unredacted notes, private paths, and unintended personal information from public outputs.</li>
+<li>Avoid medical claims about COSRX Snail 92 and avoid product endorsement language.</li>
+<li>State that the result applies to this user, this routine, this trial window, and this measurement system.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Private decision report.</li>
+<li>Public blog post draft or Quarto report.</li>
+<li>Public-safe tables and figures.</li>
+<li>Privacy review checklist.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>The private report supports a practical decision: worth keeping, removable, or uncertain/discontinue by default.</li>
+<li>The public writeup does not overclaim and does not imply general dermatology advice.</li>
+<li>No participant image or raw sensitive data is committed unintentionally.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>The public story overstates a single-person result.</li>
+<li>A demo image is mistaken for trial evidence.</li>
+<li>Private data leak through rendered HTML, image EXIF, paths, or captions.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Use limitation language from the protocol.</li>
+<li>Label demo images clearly as illustrative and not part of the trial data.</li>
+<li>Strip EXIF from any intentionally published images.</li>
+<li>Review <code>docs/</code>, <code>figures/</code>, <code>tables/</code>, <code>outputs/</code>, and <code>reports/</code> before publication.</li>
+</ul>
+<hr>
+</section>
+<section id="phase-13---archival-reproducibility-and-future-reuse" class="level2">
+<h2 class="anchored" data-anchor-id="phase-13---archival-reproducibility-and-future-reuse">Phase 13 - Archival, Reproducibility, and Future Reuse</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purpose</td>
+<td>Preserve a final, reproducible, privacy-respecting record of the trial and capture improvements for any future n-of-1 iteration.</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>After final reports are approved.</td>
+</tr>
+<tr class="odd">
+<td>Entry criteria</td>
+<td>Phase 12 complete; public/private boundary reviewed.</td>
+</tr>
+<tr class="even">
+<td>Responsible role</td>
+<td>Reproducible research engineer and trial coordinator.</td>
+</tr>
+<tr class="odd">
+<td>Repository files</td>
+<td><code>README.md</code>, <code>index.qmd</code>, <code>_quarto.yml</code>, <code>renv.lock</code>, <code>DESCRIPTION</code>, <code>protocol/</code>, <code>supporting-docs/</code>, <code>analysis/</code>, <code>R/</code>, <code>templates/</code>, <code>reports/</code>, <code>data/metadata/</code>, <code>docs/</code>, <code>notes/decision-log.md</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required tasks</strong></p>
+<ul>
+<li>Render the final Quarto site.</li>
+<li>Record package versions and session info in a reproducibility appendix or output file.</li>
+<li>Update README with final status and links to public-safe reports.</li>
+<li>Archive final protocol, amendments, templates, analysis code, public reports, QC summaries, and public-safe generated outputs.</li>
+<li>Record where private raw data and photos are stored outside Git, without exposing sensitive paths if the public repo will be shared.</li>
+<li>Confirm filled raw data and identifiable photos remain out of public Git unless intentionally prepared for release.</li>
+<li>Tag a final release or create a final commit after review.</li>
+<li>Record recommendations for a future trial, such as whether to simplify data capture, improve photo setup, change retinol cadence before run-in, or run a separate replacement-product trial.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Final rendered <code>docs/</code> site.</li>
+<li>Reproducibility instructions and session info.</li>
+<li>Final commit or release tag.</li>
+<li>Future-trial recommendations.</li>
+<li>Private archive inventory.</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ul>
+<li>A future agent can reproduce public outputs from the committed code and public data/templates, with private-data steps clearly documented.</li>
+<li>The final repo does not contain accidental private data.</li>
+<li>The project has a clear endpoint and a clear recommendation for future reuse.</li>
+</ul>
+<p><strong>Risks / failure modes</strong></p>
+<ul>
+<li>Final outputs cannot be regenerated because package versions or private-data assumptions are undocumented.</li>
+<li>Private archive locations are forgotten.</li>
+<li>Future trial lessons are lost.</li>
+</ul>
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Keep <code>renv.lock</code> current.</li>
+<li>Save session info.</li>
+<li>Maintain the trial master file through closeout.</li>
+<li>Add a final lessons-learned section before archiving.</li>
+</ul>
+</section>
+<section id="trial-start-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="trial-start-checklist">Trial Start Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Quarto render works from repository root.</label></li>
+<li><label><input type="checkbox">README and Quarto home page link the implementation plan, protocol, data guide, and analysis scaffold.</label></li>
+<li><label><input type="checkbox">Revised protocol is frozen or amended.</label></li>
+<li><label><input type="checkbox">Protocol amendment log exists.</label></li>
+<li><label><input type="checkbox">Trial master file or index exists.</label></li>
+<li><label><input type="checkbox">Materials are available and logged.</label></li>
+<li><label><input type="checkbox">Private raw data and photo directories are created under ignored paths.</label></li>
+<li><label><input type="checkbox">Daily, weekly, photo metadata, adverse-event, and deviation templates are ready.</label></li>
+<li><label><input type="checkbox">Photo setup is marked and tested.</label></li>
+<li><label><input type="checkbox">Dry-run diary and photo transfer completed.</label></li>
+<li><label><input type="checkbox">Self-generated unblinded randomization schedule created, hashed, and locked.</label></li>
+<li><label><input type="checkbox">Schedule generated or schedule-generation process ready.</label></li>
+<li><label><input type="checkbox">Safety rescue and stopping rules are visible to the participant.</label></li>
+<li><label><input type="checkbox">Minimum viable data collection rule is visible.</label></li>
+</ul>
+</section>
+<section id="data-lock-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="data-lock-checklist">Data Lock Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Final observation completed or early termination documented.</label></li>
+<li><label><input type="checkbox">Extension rule applied or explicitly declined before primary analysis.</label></li>
+<li><label><input type="checkbox">Raw diary, weekly review, adverse-event, deviation, and photo metadata files frozen.</label></li>
+<li><label><input type="checkbox">Private photo archive frozen and backed up.</label></li>
+<li><label><input type="checkbox">Missingness summarized before modeling.</label></li>
+<li><label><input type="checkbox">Protocol deviations reviewed for completeness.</label></li>
+<li><label><input type="checkbox">Photo exclusions documented before outcome modeling.</label></li>
+<li><label><input type="checkbox">Primary analysis script locked.</label></li>
+<li><label><input type="checkbox">Schedule script, seed, and hash verified.</label></li>
+</ul>
+</section>
+<section id="future-agent-execution-order" class="level2">
+<h2 class="anchored" data-anchor-id="future-agent-execution-order">Future Agent Execution Order</h2>
+<ol type="1">
+<li>Complete Phase 0 render/readiness checks and update document links.</li>
+<li>Build the Phase 1 trial master file and amendment log.</li>
+<li>Add missing raw-data templates for photo metadata, adverse events, and deviations.</li>
+<li>Draft the photo workflow and test one dry-run capture/metadata cycle.</li>
+<li>Implement the self-managed randomization script and record the seed, schedule, and hash.</li>
+<li>Extend data validation and scoring helpers only after templates are finalized.</li>
+<li>Run trial conduct milestones using the checklists above.</li>
+<li>After closeout, implement cleaning, photo normalization, primary analysis, sensitivity analysis, reports, and archival in order.</li>
+</ol>
+</section>
+<section id="resolved-design-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="resolved-design-decisions">Resolved Design Decisions</h2>
+<p>These decisions were resolved on May 26, 2026 and should be treated as part of the final design unless formally amended:</p>
+<ul>
+<li>The friend-held schedule is removed. The investigator generates, records, hashes, and locks the unblinded schedule.</li>
+<li>Official trial start date is June 7, 2026.</li>
+<li>Filled raw CSVs are stored under <code>data/raw/private/</code>.</li>
+<li>Participant photo files are stored under <code>data/raw/photos/</code>.</li>
+<li>Participant face photos will not be published; public image-method graphics use publicly available demo photos.</li>
+<li>Consumer hydration-meter readings are excluded.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
